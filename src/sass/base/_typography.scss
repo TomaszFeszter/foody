@@ -1,0 +1,19 @@
+.h1 {
+  @include font(2.4rem, 3.1rem, 700, false, $font-primary);
+}
+
+.h2 {
+  @include font(1.6rem, 2rem, 700, false, $font-secondary);
+}
+
+.h3 {
+  @include font(1.4rem, 2.1rem, 400, false, $font-secondary);
+}
+
+.sub-header {
+  @include font(1.6rem, 2.4rem, 700, false, $font-secondary);
+}
+
+.body {
+  @include font(1.1rem, 1.6rem, 400, false, $font-secondary);
+}
