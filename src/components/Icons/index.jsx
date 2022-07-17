@@ -13,3 +13,4 @@ export { ReactComponent as Search } from "./icons/search.svg";
 export { ReactComponent as Settings } from "./icons/settings.svg";
 export { ReactComponent as Star } from "./icons/star.svg";
 export { ReactComponent as Work } from "./icons/work.svg";
+export { ReactComponent as Error } from "./icons/error.svg";

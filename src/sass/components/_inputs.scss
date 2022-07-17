@@ -1,0 +1,82 @@
+.field {
+  @include flex(column, center, start);
+  @include gap(1rem);
+  position: relative;
+
+  .label {
+    @include font(1.2rem, 1.6rem, 400, $col-grey-800, $font-secondary);
+    padding-left: 2.3rem;
+
+    &--error {
+      display: none;
+      font-family: $font-primary;
+      color: $primary-color;
+      padding-left: 1.25rem;
+    }
+  }
+
+  .input:invalid:not(:placeholder-shown) + .label--error {
+    display: block;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.input {
+  @include font(1.4rem, 1.9rem, 400, $col-grey-900, $font-secondary);
+  border: 1px solid $col-grey-400;
+  border-radius: 15px;
+  background-color: $col-white;
+  min-width: 33.5rem;
+  padding: 1.5rem 2.3rem;
+
+  &::placeholder {
+    @include font(1.4rem, 1.9rem, 400, $col-grey-600, $font-secondary);
+  }
+
+  &:focus {
+    border-color: $accent-color;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-color: $primary-color;
+  }
+}
+
+.checkbox {
+  height: 1.6rem;
+  width: 0;
+  overflow: visible;
+  position: absolute;
+  padding-left: 2.6rem;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid $col-grey-400;
+    border-radius: 0.4rem;
+  }
+
+  &:checked {
+    &::before {
+      border-color: $primary-color;
+    }
+
+    &::after {
+      content: "\2713";
+      position: absolute;
+      top: 0;
+      left: 0.4rem;
+      display: inline-block;
+      color: $primary-color;
+    }
+  }
+}
