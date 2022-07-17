@@ -1,0 +1,68 @@
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font($size, $line, $weight, $color, $font: false) {
+  @if ($font) {
+    font-family: $font;
+  }
+
+  font-size: $size;
+  line-height: $line;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin gap(
+  $size-row: false,
+  $size-column: false,
+  $breakpoint-row: false,
+  $breakpoint-column: false
+) {
+  @if ($size-row) {
+    row-gap: $size-row;
+
+    @supports not (row-gap: $size-row) {
+      > * {
+        @if ($size-row) {
+          margin-bottom: $size-row;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        @if ($breakpoint-row) {
+          @media screen and (min-width: $breakpoint-row) {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @if ($size-column) {
+    column-gap: $size-column;
+
+    @supports not (column-gap: $size-column) {
+      > * {
+        @if ($size-column) {
+          margin-right: $size-column;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        @if ($breakpoint-column) {
+          @media screen and (min-width: $breakpoint-column) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
