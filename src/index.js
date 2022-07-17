@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Button from "./components/Button";
 import Heading from "./components/Heading";
 import { Heart, Logo } from "./components/Icons";
 import "./sass/main.scss";
@@ -7,6 +8,7 @@ import "./sass/main.scss";
 export default function App() {
   return (
     <div>
+      <Button disabled>Create an account</Button>
       <Heading>
         <Logo />
         <Heart width={100} height={100} />
