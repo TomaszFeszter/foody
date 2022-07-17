@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Button from "./components/Button";
+import Description from "./components/Description";
 import FilterButton from "./components/FilterButton";
 import Heading from "./components/Heading";
 import { Heart, Logo } from "./components/Icons";
@@ -39,6 +40,7 @@ export default function App() {
           <KcalLabel>2000kcal</KcalLabel>
           <TimeLabel>5-10min</TimeLabel>
         </form>
+        <Description content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quisquam officiis beatae maiores! Vitae sequi excepturi necessitatibus optio saepe? Excepturi explicabo delectus officiis deleniti maxime? Dolorem sit eum laborum neque?" />
         <Logo />
         <Heart width={100} height={100} />
         testowy <Heading>heading</Heading> stworzony za pomoca reacta
