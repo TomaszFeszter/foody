@@ -1,17 +1,22 @@
 .btn {
+  @include font(1.4rem, 150%, 700, $col-white, $font-secondary);
+  min-width: 10rem;
   padding: 1.5rem 2rem;
   background-color: $lin-gradient-orange;
   border: none;
   border-radius: 20px;
   box-shadow: $bs-btn;
-  color: $col-white;
 
   &--white {
     background-color: $col-white;
     color: $primary-color;
   }
 
-  &--disable {
+  &--long {
+    min-width: 33.5rem;
+  }
+
+  &:disabled {
     background-color: $col-grey-400;
     color: $col-grey-600;
   }

@@ -1,0 +1,5 @@
+.link {
+  @include font(1.4rem, 150%, 400, $primary-color, $font-secondary);
+  letter-spacing: -0.01rem;
+  text-decoration: underline;
+}
