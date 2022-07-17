@@ -1,5 +1,5 @@
 .field {
-  @include flex(column, center, start);
+  @include flex(column, center, flex-start);
   @include gap(1rem);
   position: relative;
 
