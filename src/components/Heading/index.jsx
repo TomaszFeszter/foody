@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function Heading({ children, size }) {
-  if (size === "small") return <h4 className="text-xl">{children}</h4>;
+function Heading({ children, size }) {
+  if (size === "small") return <h3 className="h3">{children}</h3>;
 
-  if (size === "big") return <h1 className="text-3xl">{children}</h1>;
+  if (size === "big") return <h1 className="h1">{children}</h1>;
 
-  return <h2 className="text-2xl">{children}</h2>;
+  return <h2 className="h2">{children}</h2>;
 }
+
+export default Heading;

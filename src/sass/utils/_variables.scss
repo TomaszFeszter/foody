@@ -4,6 +4,7 @@ $col-white: #fff;
 $col-black: #000;
 
 $col-grey-800: #2a3037;
+$col-grey-600: #aaacae;
 $col-grey-500: #c6c9cc;
 $col-grey-400: #dfe2e5;
 $col-grey-300: #f7f7fb;
@@ -33,3 +34,6 @@ $lin-gradient-orange: linear-gradient(
   #f9881f 23.73%,
   #ff774c 79.34%
 );
+
+// box-shadows
+$bs-btn: 0px 10px 30px rgba(202, 66, 17, 0.1);

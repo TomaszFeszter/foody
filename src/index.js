@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div>
       <Heading>
-        Dupa twojej <Heading>Tak wielka jak szafa</Heading> starej
+        testowy <Heading>heading</Heading> stworzony za pomoca reacta
       </Heading>
     </div>
   );
