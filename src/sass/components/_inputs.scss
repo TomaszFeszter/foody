@@ -1,5 +1,5 @@
 .field {
-  @include flex(column, center, start);
+  @include flex(column, center, flex-start);
   @include gap(1rem);
   position: relative;
 
@@ -29,7 +29,7 @@
   border: 1px solid $col-grey-400;
   border-radius: 15px;
   background-color: $col-white;
-  min-width: 33.5rem;
+  min-width: 30rem;
   padding: 1.5rem 2.3rem;
 
   &::placeholder {
