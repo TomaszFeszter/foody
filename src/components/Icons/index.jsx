@@ -14,3 +14,5 @@ export { ReactComponent as Settings } from "./icons/settings.svg";
 export { ReactComponent as Star } from "./icons/star.svg";
 export { ReactComponent as Work } from "./icons/work.svg";
 export { ReactComponent as Error } from "./icons/error.svg";
+export { ReactComponent as Fire } from "./icons/fire.svg";
+export { ReactComponent as Clock } from "./icons/clock.svg";

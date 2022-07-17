@@ -5,6 +5,7 @@ import FilterButton from "./components/FilterButton";
 import Heading from "./components/Heading";
 import { Heart, Logo } from "./components/Icons";
 import Input, { Checkbox, Field } from "./components/Inputs";
+import { KcalLabel, RatingLabel, TimeLabel } from "./components/Labels";
 import "./sass/main.scss";
 
 export default function App() {
@@ -27,11 +28,16 @@ export default function App() {
           <button type="submit">clicktest</button>
           <FilterButton
             onClick={() => setActive(!active)}
-            src={"https://dummyimage.com/26x26/234/fef"}
+            src={
+              "https://png.pngtree.com/png-clipart/20190802/ourlarge/pngtree-classic-burger-fresh-veg-transparent-png-background-png-image_1645405.jpg"
+            }
             active={active}
           >
             Burgers
           </FilterButton>
+          <RatingLabel>4+</RatingLabel>
+          <KcalLabel>2000kcal</KcalLabel>
+          <TimeLabel>5-10min</TimeLabel>
         </form>
         <Logo />
         <Heart width={100} height={100} />
