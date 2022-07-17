@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Button from "./components/Button";
+import FilterButton from "./components/FilterButton";
 import Heading from "./components/Heading";
 import { Heart, Logo } from "./components/Icons";
 import Input, { Checkbox, Field } from "./components/Inputs";
 import "./sass/main.scss";
 
 export default function App() {
+  const [active, setActive] = useState(false);
   return (
     <div>
       <Button disabled>Create an account</Button>
@@ -16,17 +18,20 @@ export default function App() {
             e.preventDefault();
           }}
         >
-          <Field label="Dupa" error="Twoja stara zapierdala za szybko">
+          <Field label="TEST" error="TEST">
             <Input placeholder="Enter email" type="email" required />
           </Field>
-          <Field
-            label="Email"
-            id="some-checkbox"
-            error="Twoja stara zapierdala za szybko"
-          >
+          <Field label="Email" id="some-checkbox" error="TEST">
             <Checkbox required id="some-checkbox" />
           </Field>
           <button type="submit">clicktest</button>
+          <FilterButton
+            onClick={() => setActive(!active)}
+            src={"https://dummyimage.com/26x26/234/fef"}
+            active={active}
+          >
+            Burgers
+          </FilterButton>
         </form>
         <Logo />
         <Heart width={100} height={100} />
