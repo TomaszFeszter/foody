@@ -1,0 +1,44 @@
+.menu {
+  @include flex(column, center, flex-start);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: $col-white;
+  width: 19rem;
+  height: 100vh;
+  transform: translateX(-20rem);
+  transition: all 0.3s;
+  box-shadow: $bs-30;
+
+  &--active {
+    transform: translateX(0);
+  }
+  button {
+    margin-bottom: 2.4rem;
+  }
+
+  &__user {
+    &__avatar {
+      @include flex;
+      max-width: 8.8rem;
+      max-height: 8.8rem;
+      border-radius: 3rem;
+      overflow: hidden;
+    }
+  }
+
+  &__options {
+    margin-bottom: auto;
+
+    &__item {
+      margin-bottom: 4rem;
+      svg {
+        margin-right: 1rem;
+      }
+      a {
+        @include flex(row, flex-start, center);
+        text-decoration: none;
+      }
+    }
+  }
+}
