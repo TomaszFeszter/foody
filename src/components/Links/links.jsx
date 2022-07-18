@@ -1,10 +1,11 @@
 import React from "react";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 function Link({ children, href = "", ...rest }) {
   return (
-    <a className="link" href={href} {...rest}>
+    <ReactRouterLink className="link" to={href} {...rest}>
       {children}
-    </a>
+    </ReactRouterLink>
   );
 }
 

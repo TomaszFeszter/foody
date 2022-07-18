@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import Button from "./components/Button";
-import Description from "./components/Description";
-import FilterButton from "./components/FilterButton";
-import Heading from "./components/Heading";
-import { Heart, Logo } from "./components/Icons";
-import Input, { Checkbox, Field } from "./components/Inputs";
-import { KcalLabel, RatingLabel, TimeLabel } from "./components/Labels";
+// import Button from "./components/Button";
+// import Description from "./components/Description";
+// import FilterButton from "./components/FilterButton";
+// import Heading from "./components/Heading";
+// import { Heart, Logo } from "./components/Icons";
+// import Input, { Checkbox, Field } from "./components/Inputs";
+// import { KcalLabel, RatingLabel, TimeLabel } from "./components/Labels";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./sass/main.scss";
+import Home from "./screens/Home";
+// import Category from "./screens/Category";
+import Product from "./screens/Product";
 
 export default function App() {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   return (
     <div>
-      <Button disabled>Create an account</Button>
+      {/* <Button disabled>Create an account</Button>
       <Heading>
         <form
           onSubmit={(e) => {
@@ -44,7 +48,13 @@ export default function App() {
         <Logo />
         <Heart width={100} height={100} />
         testowy <Heading>heading</Heading> stworzony za pomoca reacta
-      </Heading>
+      </Heading> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:productId" element={<Product />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
