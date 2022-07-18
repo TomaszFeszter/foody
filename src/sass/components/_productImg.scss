@@ -1,0 +1,29 @@
+.product-img {
+  width: 7.8rem;
+  height: 6.8rem;
+  background-color: $col-white;
+  box-shadow: $bs-product;
+  border-radius: 2rem;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &--medium {
+    min-width: 17rem;
+    min-height: 11.2rem;
+    box-shadow: none;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &--big {
+    max-width: 23rem;
+    max-height: 15rem;
+  }
+}

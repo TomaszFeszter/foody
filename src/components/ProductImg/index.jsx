@@ -1,11 +1,28 @@
 import React from "react";
 
-function ProductImg({ children, size }) {
-  if (size === "small") return <div className="">{children}</div>;
+function ProductImg({ children, type, src }) {
+  if (type === "medium")
+    return (
+      <div className="product-img product-img--medium">
+        <img src={src} alt="product img" />
+        {children}
+      </div>
+    );
 
-  if (size === "big") return <div className="">{children}</div>;
+  if (type === "big")
+    return (
+      <div className="product-img product-img--big">
+        <img src={src} max-width={230} max-height={150} alt="product img" />
+        {children}
+      </div>
+    );
 
-  return <div className="">{children}</div>;
+  return (
+    <div className="product-img">
+      <img src={src} alt="product img" />
+      {children}
+    </div>
+  );
 }
 
 export default ProductImg;

@@ -8,7 +8,7 @@ function FilterButton({ children, active, src, ...rest }) {
     >
       <span className="filter-btn__background">
         <img src={src} width={26} height={26} alt="filter preview" />
-        {children}
+        <p className="filter-btn__caption">{children}</p>
       </span>
     </button>
   );

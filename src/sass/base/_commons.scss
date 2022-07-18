@@ -11,6 +11,7 @@ html {
 body {
   font-family: $font-primary, $font-secondary, sans-serif;
   color: $col-black;
+  background-color: $col-grey-200;
 }
 
 ul,
@@ -20,4 +21,9 @@ ol {
 
 a {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

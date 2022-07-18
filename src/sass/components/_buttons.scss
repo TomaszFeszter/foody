@@ -44,6 +44,10 @@
     transition: all 0.1s;
   }
 
+  &__caption {
+    @include font(1.2rem, 1.8rem, 400, $col-black, $font-primary);
+  }
+
   &--active {
     opacity: 1;
     border-color: $col-green-400;
