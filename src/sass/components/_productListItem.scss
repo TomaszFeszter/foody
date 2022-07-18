@@ -1,23 +1,40 @@
 .product-list-item {
-  @include flex(row, flex-start);
+  @include flex(row);
   max-width: 40rem;
   border-radius: 3rem;
   padding: 2.2rem 1.1rem;
   position: relative;
   overflow: hidden;
+  box-shadow: $bs-btn;
 
   .product-img {
     margin-right: 1rem;
-  }
-
-  .price {
-    color: $primary-color;
   }
 
   .details {
     max-width: 15rem;
     @include gap(0.2rem);
     margin-right: 2rem;
+  }
+  .price {
+    color: $primary-color;
+  }
+
+  .add-to-cart {
+    @include flex;
+    @include gap(false, 1rem);
+    .qty-btn {
+      width: 2.4rem;
+      height: 2.4rem;
+      background: $lin-gradient-orange;
+      color: $col-white;
+      border: none;
+      border-radius: 1.2rem;
+    }
+
+    .qty-label {
+      @include font(1.6rem, 2.1rem, 400, $col-grey-800, $font-primary);
+    }
   }
 
   .flag {

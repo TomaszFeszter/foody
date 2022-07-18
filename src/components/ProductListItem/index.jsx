@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "../Links";
 import ProductImg from "../ProductImg";
 import SubHeading from "../SubHeading";
 
@@ -22,11 +23,16 @@ function ProductListItem({
         </SubHeading>
       </div>
       <div className="cta">
-        {flag && <span className="flag">{flag}</span>}
-
-        {addToCart && <div className="add-to-cart"></div>}
-        {orderAgain && <button></button>}
+        {addToCart && (
+          <div className="add-to-cart">
+            <button className="qty-btn">-</button>
+            <span className="qty-label">15</span>
+            <button className="qty-btn">+</button>
+          </div>
+        )}
+        {orderAgain && <Link>Order again</Link>}
       </div>
+      {flag && <span className="flag">{flag}</span>}
     </div>
   );
 }
