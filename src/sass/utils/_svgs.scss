@@ -9,3 +9,8 @@
 .stroke-grey {
   stroke: $col-grey-600;
 }
+
+.fill-red * {
+  fill: $col-red-500;
+  stroke: $col-red-500;
+}

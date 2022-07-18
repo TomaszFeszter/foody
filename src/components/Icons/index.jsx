@@ -4,9 +4,13 @@ export { ReactComponent as LogoCircle } from "./icons/logo/LogomarkCircle.svg";
 export { ReactComponent as LogoHorizontal } from "./icons/logo/LogotypeHorizontal.svg";
 export { ReactComponent as LogoVertical } from "./icons/logo/LogotypeVertical.svg";
 
+<<<<<<< HEAD
 export { ReactComponent as Back } from "./icons/back.svg";
 export { ReactComponent as Menu } from "./icons/menu.svg";
 export { ReactComponent as Close } from "./icons/close.svg";
+=======
+export { ReactComponent as Home } from "./icons/home.svg";
+>>>>>>> master
 export { ReactComponent as Cart } from "./icons/buy.svg";
 export { ReactComponent as Messages } from "./icons/chat.svg";
 export { ReactComponent as Notification } from "./icons/notification.svg";
