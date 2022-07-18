@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.layout {
+  @include flex(column);
+  @include gap(2rem, 2rem);
+  padding: 3rem 0;
+  flex-grow: 3;
+
+  .main {
+    flex-grow: 2;
+  }
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+
+    .aside {
+      flex-shrink: 1;
+      max-width: 35rem;
+    }
+  }
+}
