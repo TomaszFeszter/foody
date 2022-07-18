@@ -4,6 +4,7 @@ export { ReactComponent as LogoCircle } from "./icons/logo/LogomarkCircle.svg";
 export { ReactComponent as LogoHorizontal } from "./icons/logo/LogotypeHorizontal.svg";
 export { ReactComponent as LogoVertical } from "./icons/logo/LogotypeVertical.svg";
 
+export { ReactComponent as Home } from "./icons/home.svg";
 export { ReactComponent as Cart } from "./icons/buy.svg";
 export { ReactComponent as Messages } from "./icons/chat.svg";
 export { ReactComponent as Notification } from "./icons/notification.svg";

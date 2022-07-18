@@ -1,0 +1,29 @@
+.nav-bar {
+  width: 100%;
+  @include flex(row, space-around);
+  background-color: $col-white;
+  border-radius: 3rem 3rem 0 0;
+  box-shadow: $bs-20;
+  padding: 0 3rem 3.5rem 3rem;
+
+  svg * {
+    transition: all 0.2s;
+  }
+
+  .search {
+    @include flex;
+    width: 6rem;
+    height: 6rem;
+    background: $lin-gradient-orange;
+    box-shadow: $bs-30;
+    border-radius: 3rem;
+    border: none;
+    transform: translateY(-1rem);
+    transition: all 0.2s;
+
+    &.active {
+      transform: translateY(-1.5rem);
+      box-shadow: $bs-btn;
+    }
+  }
+}
