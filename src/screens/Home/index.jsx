@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from "../../components/Box";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
 import Link from "../../components/Links";
+import { AuthContext } from "../../context/Auth";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import foodImage from "./images/food.png";
 
 const Home = () => {
+  const contextVal = useContext(AuthContext);
+  console.log(contextVal);
   const firstColumn = (
     <Box center>
       <Heading size={"big"}>

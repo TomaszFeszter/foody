@@ -1,17 +1,15 @@
 import { useCallback, useState } from "react";
 
-const useFetch = (url, initialConfig = {}) => {
+const useFetch = (initialUrl, initialConfig = {}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("idle");
 
   const run = useCallback(
-    ({
-      method = "GET",
-      token,
-      headers = {},
-      ...customConfig
-    } = initialConfig) => {
+    (
+      url = initialUrl,
+      { method = "GET", token, headers = {}, ...customConfig } = initialConfig
+    ) => {
       fetch(url, {
         method,
         headers: {
@@ -32,13 +30,13 @@ const useFetch = (url, initialConfig = {}) => {
           setStatus("error");
         });
     },
-    [url, initialConfig]
+    [initialUrl, initialConfig]
   );
 
   return {
     data,
     isSuccess: status === "success",
-    isLoading: status === "loading" || status === "idle",
+    isLoading: status === "loading",
     isError: status === "error",
     error,
     run,

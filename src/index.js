@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import { AuthProvider } from "./context/Auth";
 import { Container } from "./layouts";
 import "./sass/main.scss";
 import Category from "./screens/Category";
@@ -13,16 +13,13 @@ import SignUp from "./screens/SignUp";
 export default function App() {
   return (
     <Container>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/log-in" element={<LogIn />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/products/:productId" element={<Product />} />
-        </Routes>
-        {/* <NavBar /> */}
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={<LogIn />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/products/:productId" element={<Product />} />
+      </Routes>
     </Container>
   );
 }
@@ -30,6 +27,10 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

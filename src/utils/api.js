@@ -7,6 +7,9 @@ const API = {
   LOGIN() {
     return BASE_URL + "users/login";
   },
+  GET_USER_DATA() {
+    return BASE_URL + `users/me`;
+  },
   GET_PRODUCTS_IN_CATEGORY(categoryId = "") {
     return BASE_URL + "products/categories/" + categoryId;
   },

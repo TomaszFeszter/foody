@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input, { Field } from "../../components/Inputs";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
-import API from "../../utils/api";
-import useFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../context/Auth";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const { run, isSuccess } = useFetch(API.LOGIN());
   const [showModal, setShowModal] = useState(true);
+  const { login, user } = useContext(AuthContext);
+  console.log("ze strony logowania", user);
+
+  if (user) navigate("/");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -19,12 +21,8 @@ const LogIn = () => {
 
     if (!email || !password) return;
 
-    run({ method: "POST", body: JSON.stringify({ email, password }) });
+    login({ email, password });
   };
-
-  useEffect(() => {
-    if (isSuccess) navigate("/");
-  }, [isSuccess, navigate]);
 
   const logInForm = (
     <Form onSubmit={onSubmit}>
