@@ -10,8 +10,6 @@ function Form({ children, onSubmit, ...rest }) {
     onSubmit(formData);
   };
 
-  formRef.current = Math.random();
-
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="form" {...rest}>
       {children}

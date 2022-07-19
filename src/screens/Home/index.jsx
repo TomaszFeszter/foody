@@ -2,7 +2,7 @@ import React from "react";
 import Box from "../../components/Box";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
-import Modal from "../../components/Modal";
+import Link from "../../components/Links";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import foodImage from "./images/food.png";
 
@@ -18,11 +18,14 @@ const Home = () => {
 
   const secondColumn = (
     <Box center column>
-      <Button long>Create an account</Button>
-      <Button secondary long>
-        login
-      </Button>
-      <Modal>To jest modal!</Modal>
+      <Link to="/sign-up">
+        <Button long>Create account</Button>
+      </Link>
+      <Link to="/log-in">
+        <Button secondary long>
+          Login
+        </Button>
+      </Link>
     </Box>
   );
 
