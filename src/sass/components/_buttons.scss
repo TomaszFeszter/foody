@@ -8,12 +8,12 @@
   box-shadow: $bs-btn;
 
   &--white {
-    background-color: $col-white;
+    background: $col-white;
     color: $primary-color;
   }
 
   &--long {
-    min-width: 33.5rem;
+    min-width: 25rem;
   }
 
   &:disabled {
