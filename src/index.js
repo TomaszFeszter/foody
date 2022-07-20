@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/Auth";
+import { ProductProvider } from "./context/Products";
 import { Container } from "./layouts";
 import "./sass/main.scss";
 import Category from "./screens/Category";
@@ -29,7 +30,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <ProductProvider>
+          <App />
+        </ProductProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

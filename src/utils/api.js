@@ -11,10 +11,16 @@ const API = {
     return BASE_URL + "users/logout";
   },
   GET_USER_DATA() {
-    return BASE_URL + `users/me`;
+    return BASE_URL + "users/me";
+  },
+  GET_CATEGORIES() {
+    return BASE_URL + "products/categories";
   },
   GET_PRODUCTS_IN_CATEGORY(categoryId = "") {
     return BASE_URL + "products/categories/" + categoryId;
+  },
+  GET_PRODUCT(productId = "") {
+    return BASE_URL + "products/" + productId;
   },
 };
 

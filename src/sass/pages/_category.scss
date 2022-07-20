@@ -1,0 +1,20 @@
+.category {
+  .h1 {
+    margin-bottom: 5rem;
+  }
+  &__filters {
+    @include flex;
+    @include gap(2rem, 2rem);
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+  }
+
+  .h2 {
+    margin-bottom: 2rem;
+  }
+  &__products {
+    @include flex;
+    @include gap(2rem, 2rem);
+    flex-wrap: wrap;
+  }
+}

@@ -14,7 +14,7 @@ const LogIn = () => {
   const [showModal, setShowModal] = useState(true);
   const { login, isLoggedIn } = useContext(AuthContext);
 
-  if (isLoggedIn) navigate("/");
+  if (isLoggedIn) navigate("/category");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -34,9 +34,6 @@ const LogIn = () => {
           Good to see you again, enter your details below to continue ordering.{" "}
         </Heading>
         <Form onSubmit={onSubmit}>
-          {showModal && (
-            <Modal handleClose={() => setShowModal(false)}>Modal</Modal>
-          )}
           <Field label="Email">
             <Input type="email" name="email" placeholder="Email" />
           </Field>

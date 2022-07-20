@@ -11,7 +11,7 @@ const useFetch = (initialUrl, initialConfig = {}) => {
       { method = "GET", token, headers = {}, ...customConfig } = initialConfig
     ) => {
       setStatus("loading");
-      fetch(url, {
+      return fetch(url, {
         method,
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -21,13 +21,22 @@ const useFetch = (initialUrl, initialConfig = {}) => {
         },
         ...customConfig,
       })
-        .then((res) => res.json())
-        .then((res) => {
-          setData(res);
+        .then(async (response) => {
+          const isJson = response.headers
+            .get("content-type")
+            ?.includes("application/json");
+          const data = isJson ? await response.json() : null;
+          if (!response.ok) {
+            // get error message from body or default to response status
+            return Promise.reject(data);
+          }
+          setData(data);
           setStatus("success");
+          return data;
         })
         .catch((err) => {
           setError(err);
+          console.log(err);
           setStatus("error");
         });
     },
@@ -41,6 +50,7 @@ const useFetch = (initialUrl, initialConfig = {}) => {
     isError: status === "error",
     error,
     run,
+    setData,
   };
 };
 

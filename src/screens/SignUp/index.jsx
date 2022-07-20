@@ -9,10 +9,10 @@ import Heading from "../../components/Heading";
 import { Logo } from "../../components/Icons";
 
 const SignUp = () => {
-  const { signUp, user } = useContext(AuthContext);
+  const { signUp, isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  if (user) navigate("/");
+  if (isLoggedIn) navigate("/category");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");

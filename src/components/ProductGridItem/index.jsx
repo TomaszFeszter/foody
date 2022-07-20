@@ -10,11 +10,12 @@ function ProductGridItem({
   description = "",
   rating = "",
 }) {
+  const descriptionShort = description.slice(0, 50);
   return (
     <div className="product-grid-item">
       <ProductImg src={imgSrc} type="medium" />
       <SubHeading size="big">{caption}</SubHeading>
-      <SubHeading>{description}</SubHeading>
+      <SubHeading>{descriptionShort}</SubHeading>
       <div className="cta">
         <RatingLabel>{rating}</RatingLabel> <Heart />
       </div>
