@@ -7,6 +7,9 @@ const API = {
   LOGIN() {
     return BASE_URL + "users/login";
   },
+  LOGOUT() {
+    return BASE_URL + "users/logout";
+  },
   GET_USER_DATA() {
     return BASE_URL + `users/me`;
   },

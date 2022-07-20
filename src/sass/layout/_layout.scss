@@ -8,8 +8,6 @@
 
 .layout {
   @include flex(column);
-  @include gap(2rem, 2rem);
-  padding: 3rem 0;
   flex-grow: 3;
 
   .main {

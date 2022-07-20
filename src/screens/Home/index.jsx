@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import Box from "../../components/Box";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
+import { Logo } from "../../components/Icons";
 import Link from "../../components/Links";
 import { AuthContext } from "../../context/Auth";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
@@ -11,25 +11,28 @@ const Home = () => {
   const contextVal = useContext(AuthContext);
   console.log(contextVal);
   const firstColumn = (
-    <Box center>
-      <Heading size={"big"}>
-        Order from your favourite stores or vendors
+    <div className="flex-column pt-16">
+      <Logo className="logo mb-16" />
+      <Heading size={"big"} styles={"mb-16"}>
+        Choose from a wide range of delicious meals
       </Heading>
       <img src={foodImage} alt="Some food" />
-    </Box>
+    </div>
   );
 
   const secondColumn = (
-    <Box center column>
+    <div className="flex-column">
       <Link to="/sign-up">
-        <Button long>Create account</Button>
+        <Button long styles={"mb-10"}>
+          Create account
+        </Button>
       </Link>
       <Link to="/log-in">
         <Button secondary long>
           Login
         </Button>
       </Link>
-    </Box>
+    </div>
   );
 
   return (

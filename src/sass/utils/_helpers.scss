@@ -1,0 +1,21 @@
+.flex-row {
+  @include flex;
+  text-align: center;
+}
+
+.flex-column {
+  @include flex(column);
+  text-align: center;
+}
+
+.logo {
+  width: 3.4rem;
+  height: 2.4rem;
+}
+
+@media screen and (min-width: 425px) {
+  .logo {
+    width: 10.5rem;
+    height: 7.2rem;
+  }
+}

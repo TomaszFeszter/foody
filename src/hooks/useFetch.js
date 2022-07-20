@@ -10,6 +10,7 @@ const useFetch = (initialUrl, initialConfig = {}) => {
       url = initialUrl,
       { method = "GET", token, headers = {}, ...customConfig } = initialConfig
     ) => {
+      setStatus("loading");
       fetch(url, {
         method,
         headers: {

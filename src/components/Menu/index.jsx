@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CloseButton } from "../BackButton";
 import Button from "../Button";
 import { Paper, Profile } from "../Icons";
 import SubHeading from "../SubHeading";
+import { AuthContext } from "../../context/Auth";
+import { useNavigate } from "react-router-dom";
 
 const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
+  const navigate = useNavigate();
+  const { logout, isLoggedIn } = useContext(AuthContext);
   return (
     <div
       onBlur={handleClose}
@@ -32,7 +36,13 @@ const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
           </Link>
         </li>
       </ul>
-      <Button>Log out</Button>
+      <Button
+        onClick={() => {
+          logout();
+        }}
+      >
+        Log out
+      </Button>
     </div>
   );
 };

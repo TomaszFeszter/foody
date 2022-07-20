@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const { data, run, isLoading } = useFetch();
   const userDataReq = useFetch();
   const token = data && data.id;
+  const isLoggedIn = token && userDataReq.data;
 
   const login = ({ email, password }) => {
     if (isLoading) return;
@@ -31,11 +32,21 @@ export const AuthProvider = ({ children }) => {
     userDataReq.run(API.GET_USER_DATA(), { token });
   }, [token, userDataReq]);
 
-  const logout = () => {};
+  const logout = () => {
+    if (isLoading) return;
+    run(API.LOGOUT(), { token });
+  };
 
   return (
     <AuthContext.Provider
-      value={{ user: userDataReq.data, login, signUp, logout, token }}
+      value={{
+        user: userDataReq.data,
+        isLoggedIn,
+        login,
+        signUp,
+        logout,
+        token,
+      }}
     >
       {children}
     </AuthContext.Provider>

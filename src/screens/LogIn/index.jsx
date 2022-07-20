@@ -6,14 +6,15 @@ import Form from "../../components/Form";
 import Input, { Field } from "../../components/Inputs";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import { AuthContext } from "../../context/Auth";
+import { Logo } from "../../components/Icons";
+import Heading from "../../components/Heading";
 
 const LogIn = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(true);
-  const { login, user } = useContext(AuthContext);
-  console.log("ze strony logowania", user);
+  const { login, isLoggedIn } = useContext(AuthContext);
 
-  if (user) navigate("/");
+  if (isLoggedIn) navigate("/");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -25,20 +26,29 @@ const LogIn = () => {
   };
 
   const logInForm = (
-    <Form onSubmit={onSubmit}>
-      {showModal && (
-        <Modal handleClose={() => setShowModal(false)}>Modal</Modal>
-      )}
-      <Field label="Email">
-        <Input type="email" name="email" placeholder="Email" />
-      </Field>
-      <Field label="Password">
-        <Input type="password" name="password" placeholder="Password" />
-      </Field>
-      <Button long type="submit">
-        Log In
-      </Button>
-    </Form>
+    <React.Fragment>
+      <div className="auth">
+        <Logo className="logo" />
+        <Heading size="big">Login to your account</Heading>
+        <Heading size="small">
+          Good to see you again, enter your details below to continue ordering.{" "}
+        </Heading>
+        <Form onSubmit={onSubmit}>
+          {showModal && (
+            <Modal handleClose={() => setShowModal(false)}>Modal</Modal>
+          )}
+          <Field label="Email">
+            <Input type="email" name="email" placeholder="Email" />
+          </Field>
+          <Field label="Password">
+            <Input type="password" name="password" placeholder="Password" />
+          </Field>
+          <Button long type="submit">
+            Log In
+          </Button>
+        </Form>
+      </div>
+    </React.Fragment>
   );
   return <UnauthorizedLayout firstColumn={logInForm} />;
 };

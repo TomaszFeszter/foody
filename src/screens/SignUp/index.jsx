@@ -5,6 +5,8 @@ import Input, { Field } from "../../components/Inputs";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
+import Heading from "../../components/Heading";
+import { Logo } from "../../components/Icons";
 
 const SignUp = () => {
   const { signUp, user } = useContext(AuthContext);
@@ -23,22 +25,34 @@ const SignUp = () => {
   };
 
   const signUpForm = (
-    <Form onSubmit={onSubmit}>
-      <Field label="Email">
-        <Input type="email" name="email" placeholder="Email" />
-      </Field>
-      <Field label="Password">
-        <Input type="password" name="password" placeholder="Password" />
-      </Field>
-      <Field label="Password Confirm">
-        <Input
-          type="password"
-          name="password-confirm"
-          placeholder="Password Confirm"
-        />
-      </Field>
-      <Button type="submit">Sign up</Button>
-    </Form>
+    <React.Fragment>
+      <div className="auth">
+        <Logo className="logo" />
+        <Heading size="big">Create an account</Heading>
+        <Heading size="small">
+          Welcome friend, enter your details so lets get started in ordering
+          food.
+        </Heading>
+        <Form onSubmit={onSubmit}>
+          <Field label="Email">
+            <Input type="email" name="email" placeholder="Email" />
+          </Field>
+          <Field label="Password">
+            <Input type="password" name="password" placeholder="Password" />
+          </Field>
+          <Field label="Password Confirm">
+            <Input
+              type="password"
+              name="password-confirm"
+              placeholder="Password Confirm"
+            />
+          </Field>
+          <Button long type="submit">
+            Sign up
+          </Button>
+        </Form>
+      </div>
+    </React.Fragment>
   );
   return <UnauthorizedLayout firstColumn={signUpForm} />;
 };

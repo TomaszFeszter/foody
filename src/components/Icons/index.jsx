@@ -1,5 +1,5 @@
 import { ReactComponent as HeartIcon } from "./icons/heart.svg";
-export { ReactComponent as Logo } from "./icons/logo/Logomark.svg";
+import { ReactComponent as LogoIcon } from "./icons/logo/Logomark.svg";
 export { ReactComponent as LogoCircle } from "./icons/logo/LogomarkCircle.svg";
 export { ReactComponent as LogoHorizontal } from "./icons/logo/LogotypeHorizontal.svg";
 export { ReactComponent as LogoVertical } from "./icons/logo/LogotypeVertical.svg";
@@ -23,4 +23,8 @@ export { ReactComponent as Clock } from "./icons/clock.svg";
 
 export const Heart = (props) => {
   return <HeartIcon className="stroke-grey" {...props} />;
+};
+
+export const Logo = (props) => {
+  return <LogoIcon {...props} />;
 };
