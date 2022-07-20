@@ -1,0 +1,19 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  @include flex;
+  background-color: rgba($col-black, 0.1);
+
+  .box {
+    max-width: 30rem;
+    flex-direction: column;
+    text-align: center;
+
+    .nav-btn {
+      align-self: flex-end;
+    }
+  }
+}
