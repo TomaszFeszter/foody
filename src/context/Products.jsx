@@ -45,7 +45,7 @@ export const ProductProvider = ({ children }) => {
 
     const data = productsInCache.get(id);
     if (data) {
-      productDataReq.setData(id, data);
+      productDataReq.setData(data);
       return;
     }
     const productData = await productDataReq.run(API.GET_PRODUCT(id));

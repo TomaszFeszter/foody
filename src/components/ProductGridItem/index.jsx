@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Heart } from "../Icons";
 import { RatingLabel } from "../Labels";
 import ProductImg from "../ProductImg";
@@ -9,13 +10,21 @@ function ProductGridItem({
   caption = "",
   description = "",
   rating = "",
+  id,
 }) {
+  const navigate = useNavigate();
   const descriptionShort = description.slice(0, 50);
+
+  const handleClick = () => {
+    navigate(`/products/${id}`);
+  };
   return (
     <div className="product-grid-item">
-      <ProductImg src={imgSrc} type="medium" />
-      <SubHeading size="big">{caption}</SubHeading>
-      <SubHeading>{descriptionShort}</SubHeading>
+      <ProductImg onClick={handleClick} src={imgSrc} type="medium" />
+      <SubHeading onClick={handleClick} size="big">
+        {caption}
+      </SubHeading>
+      <SubHeading onClick={handleClick}>{descriptionShort}</SubHeading>
       <div className="cta">
         <RatingLabel>{rating}</RatingLabel> <Heart />
       </div>

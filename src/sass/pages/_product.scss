@@ -1,0 +1,41 @@
+.product {
+  @include flex(column, flex-start);
+  max-width: 37.5rem;
+  height: 100%;
+  margin: 0 auto;
+
+  .product-img,
+  .add-to-cart {
+    margin-bottom: 3rem;
+  }
+
+  &__info {
+    width: 100%;
+    margin-bottom: auto;
+    @include flex(column, flex-start, flex-start);
+    flex-grow: 2;
+
+    .h1 {
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__labels {
+      width: 100%;
+      @include flex(row, space-between);
+      padding: 0 1.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .h3,
+  .price,
+  .btn {
+    margin-bottom: 1.5rem;
+  }
+
+  .price {
+    margin-top: auto;
+  }
+}

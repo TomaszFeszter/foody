@@ -41,6 +41,7 @@ const Category = () => {
           {categories &&
             categories.map(({ id, name, image }) => (
               <FilterButton
+                key={id}
                 onClick={() => setActiveCategory(id)}
                 name={name}
                 image={`http://localhost:5050/${image}`}
@@ -51,12 +52,14 @@ const Category = () => {
         <Heading>Popular restaurants</Heading>
         <div className="category__products">
           {products &&
-            products.map(({ thumbs, name, short, rating }) => (
+            products.map(({ thumbs, name, short, rating, id }) => (
               <ProductGridItem
+                id={id}
                 imgSrc={thumbs.normal}
                 caption={name}
                 description={short}
                 rating={rating}
+                key={id}
               />
             ))}
         </div>

@@ -22,6 +22,15 @@ const API = {
   GET_PRODUCT(productId = "") {
     return BASE_URL + "products/" + productId;
   },
+  POST_CART() {
+    return BASE_URL + "carts/";
+  },
+  GET_CART(cartId) {
+    return BASE_URL + "carts/" + cartId;
+  },
+  PUT_PRODUCTS_TO_CART(cartId) {
+    return BASE_URL + "carts/" + cartId;
+  },
 };
 
 export default API;

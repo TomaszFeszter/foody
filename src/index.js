@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/Auth";
+import { CartProvider } from "./context/Cart";
 import { ProductProvider } from "./context/Products";
 import { Container } from "./layouts";
 import "./sass/main.scss";
@@ -10,6 +11,7 @@ import Home from "./screens/Home";
 import LogIn from "./screens/LogIn";
 import Product from "./screens/Product";
 import SignUp from "./screens/SignUp";
+import Cart from "./screens/Cart";
 
 export default function App() {
   return (
@@ -20,6 +22,7 @@ export default function App() {
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/category" element={<Category />} />
         <Route path="/products/:productId" element={<Product />} />
+        <Route path="/cart/" element={<Cart />} />
       </Routes>
     </Container>
   );
@@ -31,7 +34,9 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <ProductProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductProvider>
       </AuthProvider>
     </BrowserRouter>
