@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input, { Field } from "../../components/Inputs";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
-import API from "../../utils/api";
-import useFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../context/Auth";
+import { Logo } from "../../components/Icons";
+import Heading from "../../components/Heading";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const { run, isSuccess } = useFetch(API.LOGIN());
   const [showModal, setShowModal] = useState(true);
+  const { login, isLoggedIn } = useContext(AuthContext);
+
+  if (isLoggedIn) navigate("/category");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -19,28 +22,30 @@ const LogIn = () => {
 
     if (!email || !password) return;
 
-    run({ method: "POST", body: JSON.stringify({ email, password }) });
+    login({ email, password });
   };
 
-  useEffect(() => {
-    if (isSuccess) navigate("/");
-  }, [isSuccess, navigate]);
-
   const logInForm = (
-    <Form onSubmit={onSubmit}>
-      {showModal && (
-        <Modal handleClose={() => setShowModal(false)}>Modal</Modal>
-      )}
-      <Field label="Email">
-        <Input type="email" name="email" placeholder="Email" />
-      </Field>
-      <Field label="Password">
-        <Input type="password" name="password" placeholder="Password" />
-      </Field>
-      <Button long type="submit">
-        Log In
-      </Button>
-    </Form>
+    <React.Fragment>
+      <div className="auth">
+        <Logo className="logo" />
+        <Heading size="big">Login to your account</Heading>
+        <Heading size="small">
+          Good to see you again, enter your details below to continue ordering.{" "}
+        </Heading>
+        <Form onSubmit={onSubmit}>
+          <Field label="Email">
+            <Input type="email" name="email" placeholder="Email" />
+          </Field>
+          <Field label="Password">
+            <Input type="password" name="password" placeholder="Password" />
+          </Field>
+          <Button long type="submit">
+            Log In
+          </Button>
+        </Form>
+      </div>
+    </React.Fragment>
   );
   return <UnauthorizedLayout firstColumn={logInForm} />;
 };

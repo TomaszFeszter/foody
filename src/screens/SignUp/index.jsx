@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input, { Field } from "../../components/Inputs";
 import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import { useNavigate } from "react-router-dom";
-import API from "../../utils/api";
-import useFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../context/Auth";
+import Heading from "../../components/Heading";
+import { Logo } from "../../components/Icons";
 
 const SignUp = () => {
+  const { signUp, isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { run, isSuccess } = useFetch(API.SIGN_UP());
+
+  if (isLoggedIn) navigate("/category");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -18,31 +21,38 @@ const SignUp = () => {
 
     if (!email || !password || !passwordConfirm || password !== passwordConfirm)
       return;
-
-    run({ method: "POST", body: JSON.stringify({ email, password }) });
+    signUp({ email, password });
   };
 
-  useEffect(() => {
-    if (isSuccess) navigate("/");
-  }, [isSuccess, navigate]);
-
   const signUpForm = (
-    <Form onSubmit={onSubmit}>
-      <Field label="Email">
-        <Input type="email" name="email" placeholder="Email" />
-      </Field>
-      <Field label="Password">
-        <Input type="password" name="password" placeholder="Password" />
-      </Field>
-      <Field label="Password Confirm">
-        <Input
-          type="password"
-          name="password-confirm"
-          placeholder="Password Confirm"
-        />
-      </Field>
-      <Button type="submit">Sign up</Button>
-    </Form>
+    <React.Fragment>
+      <div className="auth">
+        <Logo className="logo" />
+        <Heading size="big">Create an account</Heading>
+        <Heading size="small">
+          Welcome friend, enter your details so lets get started in ordering
+          food.
+        </Heading>
+        <Form onSubmit={onSubmit}>
+          <Field label="Email">
+            <Input type="email" name="email" placeholder="Email" />
+          </Field>
+          <Field label="Password">
+            <Input type="password" name="password" placeholder="Password" />
+          </Field>
+          <Field label="Password Confirm">
+            <Input
+              type="password"
+              name="password-confirm"
+              placeholder="Password Confirm"
+            />
+          </Field>
+          <Button long type="submit">
+            Sign up
+          </Button>
+        </Form>
+      </div>
+    </React.Fragment>
   );
   return <UnauthorizedLayout firstColumn={signUpForm} />;
 };

@@ -7,13 +7,12 @@
 }
 
 .layout {
-  @include flex(column);
-  @include gap(2rem, 2rem);
-  padding: 3rem 0;
   flex-grow: 3;
 
   .main {
+    margin: 0 auto;
     flex-grow: 2;
+    height: 100%;
   }
 
   @media screen and (min-width: 800px) {

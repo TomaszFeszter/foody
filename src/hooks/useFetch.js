@@ -1,18 +1,17 @@
 import { useCallback, useState } from "react";
 
-const useFetch = (url, initialConfig = {}) => {
+const useFetch = (initialUrl, initialConfig = {}) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("idle");
 
   const run = useCallback(
-    ({
-      method = "GET",
-      token,
-      headers = {},
-      ...customConfig
-    } = initialConfig) => {
-      fetch(url, {
+    (
+      url = initialUrl,
+      { method = "GET", token, headers = {}, ...customConfig } = initialConfig
+    ) => {
+      setStatus("loading");
+      return fetch(url, {
         method,
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -22,26 +21,36 @@ const useFetch = (url, initialConfig = {}) => {
         },
         ...customConfig,
       })
-        .then((res) => res.json())
-        .then((res) => {
-          setData(res);
+        .then(async (response) => {
+          const isJson = response.headers
+            .get("content-type")
+            ?.includes("application/json");
+          const data = isJson ? await response.json() : null;
+          if (!response.ok) {
+            // get error message from body or default to response status
+            return Promise.reject(data);
+          }
+          setData(data);
           setStatus("success");
+          return data;
         })
         .catch((err) => {
           setError(err);
+          console.log(err);
           setStatus("error");
         });
     },
-    [url, initialConfig]
+    [initialUrl, initialConfig]
   );
 
   return {
     data,
     isSuccess: status === "success",
-    isLoading: status === "loading" || status === "idle",
+    isLoading: status === "loading",
     isError: status === "error",
     error,
     run,
+    setData,
   };
 };
 

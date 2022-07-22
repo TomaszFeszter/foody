@@ -1,5 +1,6 @@
 .nav-bar {
-  width: 100%;
+  width: calc(100% + 4rem);
+  margin: 0 -2rem;
   @include flex(row, space-around);
   background-color: $col-white;
   border-radius: 3rem 3rem 0 0;
@@ -8,6 +9,24 @@
 
   svg * {
     transition: all 0.2s;
+  }
+
+  a {
+    position: relative;
+  }
+
+  .status {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $col-red-500;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    color: $col-white;
+    border: 2px solid $col-white;
+    font-size: 1rem;
+    @include flex;
   }
 
   .search {

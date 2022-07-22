@@ -1,0 +1,32 @@
+.cart {
+  padding-top: 2rem;
+  max-width: 34.4rem;
+  @include flex(column);
+  margin: 0 auto;
+
+  .h1 {
+    margin-bottom: 4rem;
+    align-self: flex-start;
+  }
+
+  &__products {
+    @include flex(column);
+    @include gap(2rem);
+    margin-bottom: 2rem;
+  }
+
+  &__summary {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 5rem;
+    @include flex(row, space-between, center);
+
+    .h2 {
+      font-size: 2.4rem;
+    }
+  }
+
+  .btn {
+    margin-bottom: 2rem;
+  }
+}
