@@ -1,6 +1,7 @@
 .auth {
   @include flex(column, center, flex-start);
   max-width: 30rem;
+
   .logo {
     align-self: center;
     margin-top: 3rem;

@@ -4,7 +4,7 @@ import ProductListItem from "../../components/ProductListItem";
 import { AuthContext } from "../../context/Auth";
 import { CartContext } from "../../context/Cart";
 import useFetch from "../../hooks/useFetch";
-import AuthorizedLayout from "../../layouts/AuthorizedLayout";
+import AppLayout from "../../layouts/AppLayout";
 import API from "../../utils/api";
 
 const OrderHistory = () => {
@@ -18,7 +18,7 @@ const OrderHistory = () => {
   }, [data, isLoading, run, token]);
 
   return (
-    <AuthorizedLayout>
+    <AppLayout>
       <div className="orders">
         <Heading size="big">Your orders</Heading>
         <section className="orders__list">
@@ -47,7 +47,7 @@ const OrderHistory = () => {
             })}
         </section>
       </div>
-    </AuthorizedLayout>
+    </AppLayout>
   );
 };
 

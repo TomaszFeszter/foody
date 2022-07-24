@@ -2,13 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
-import AuthorizedLayout from "../../layouts/AuthorizedLayout";
+import AppLayout from "../../layouts/AppLayout";
 import { ReactComponent as SuccessImg } from "./images/success.svg";
 
 const Success = () => {
   const navigate = useNavigate();
   return (
-    <AuthorizedLayout>
+    <AppLayout>
       <div className="success">
         <section className="success__info">
           <SuccessImg />
@@ -22,7 +22,7 @@ const Success = () => {
           Go back to home
         </Button>
       </div>
-    </AuthorizedLayout>
+    </AppLayout>
   );
 };
 

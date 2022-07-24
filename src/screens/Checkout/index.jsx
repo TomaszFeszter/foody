@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/Auth";
 import Form from "../../components/Form";
 import { CartContext } from "../../context/Cart";
 import { useNavigate } from "react-router-dom";
-import AuthorizedLayout from "../../layouts/AuthorizedLayout";
+import AppLayout from "../../layouts/AppLayout";
 
 const Checkout = () => {
   const { token, user } = useContext(AuthContext);
@@ -61,7 +61,7 @@ const Checkout = () => {
     data && data.find((payMethod) => payMethod.id === activePaymentMethod)
   );
   return (
-    <AuthorizedLayout>
+    <AppLayout>
       <Form styles="checkout" onSubmit={completeOrder}>
         <section className="checkout__user-data">
           <Heading size="big">Delivery method</Heading>
@@ -134,7 +134,7 @@ const Checkout = () => {
           </Button>
         </section>
       </Form>
-    </AuthorizedLayout>
+    </AppLayout>
   );
 };
 

@@ -9,7 +9,7 @@ import ProductImg from "../../components/ProductImg";
 import SubHeading from "../../components/SubHeading";
 import { CartContext } from "../../context/Cart";
 import { ProductContext } from "../../context/Products";
-import AuthorizedLayout from "../../layouts/AuthorizedLayout";
+import AppLayout from "../../layouts/AppLayout";
 
 const Product = () => {
   const { getProduct, product } = useContext(ProductContext);
@@ -32,7 +32,7 @@ const Product = () => {
   const qty = currentItemInCart ? currentItemInCart.qty : 0;
   const { images, name, description, rating, kcal, prepTime, price } = product;
   return (
-    <AuthorizedLayout>
+    <AppLayout>
       <div className="product">
         <ProductImg type="big" src={images.big} />
         <AddToCart
@@ -57,7 +57,7 @@ const Product = () => {
           </Button>
         </div>
       </div>
-    </AuthorizedLayout>
+    </AppLayout>
   );
 };
 

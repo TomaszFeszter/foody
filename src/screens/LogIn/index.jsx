@@ -1,52 +1,33 @@
-import React, { useContext } from "react";
-import Button from "../../components/Button";
-import Form from "../../components/Form";
-import Input, { Field } from "../../components/Inputs";
-import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
-import { AuthContext } from "../../context/Auth";
-import { Logo } from "../../components/Icons";
-import Heading from "../../components/Heading";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import LogIn from "../../features/Login";
+import SignUp from "../../features/SignUp";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { Cell, Grid, Page } from "../../layouts";
 
-const LogIn = () => {
-  const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
+const LogInPage = () => {
+  const isDesktop = useMediaQuery("(min-width: 1200px)");
 
-  const onSubmit = (formData) => {
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    if (!email || !password) return;
-
-    login({ email, password });
-  };
-
-  const logInForm = (
-    <React.Fragment>
-      <div className="auth">
-        <Logo className="logo" />
-        <Heading size="big">Login to your account</Heading>
-        <Heading size="small">
-          Good to see you again, enter your details below to continue ordering.{" "}
-        </Heading>
-        <Form onSubmit={onSubmit}>
-          <Field label="Email">
-            <Input type="email" name="email" placeholder="Email" />
-          </Field>
-          <Field label="Password">
-            <Input type="password" name="password" placeholder="Password" />
-          </Field>
-          <Button long type="submit">
-            Log In
-          </Button>
-          <Button onClick={() => navigate("/sign-up")} long secondary>
-            Create an account
-          </Button>
-        </Form>
-      </div>
-    </React.Fragment>
+  // TODO przemyśl nazwy klas
+  return (
+    <Page>
+      <Grid>
+        {isDesktop ? (
+          <>
+            <Cell size={6} modifier="center-horizontally">
+              <LogIn />
+            </Cell>
+            <Cell size={6} modifier="center-horizontally">
+              <SignUp />
+            </Cell>
+          </>
+        ) : (
+          <Cell modifier={"center-horizontally"}>
+            <LogIn />
+          </Cell>
+        )}
+      </Grid>
+    </Page>
   );
-  return <UnauthorizedLayout firstColumn={logInForm} />;
 };
 
-export default LogIn;
+export default LogInPage;

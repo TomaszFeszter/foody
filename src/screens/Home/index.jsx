@@ -1,18 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
 import { Logo } from "../../components/Icons";
 import Link from "../../components/Links";
-import { AuthContext } from "../../context/Auth";
 import { Page } from "../../layouts";
-import Category from "../Category";
 import foodImage from "./images/food.png";
 
 const Home = () => {
-  const { isLoggedIn } = useContext(AuthContext);
-
-  if (isLoggedIn) return <Category />;
-
   const firstColumn = (
     <div className="flex-column pt-16">
       <Logo className="logo mb-16" />

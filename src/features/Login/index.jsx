@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Button from "../../components/Button";
 import Form from "../../components/Form";
 import Input, { Field } from "../../components/Inputs";
-import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
 import { AuthContext } from "../../context/Auth";
 import { Logo } from "../../components/Icons";
 import Heading from "../../components/Heading";
@@ -21,7 +20,7 @@ const LogIn = () => {
     login({ email, password });
   };
 
-  const logInForm = (
+  return (
     <React.Fragment>
       <div className="auth">
         <Logo className="logo" />
@@ -46,7 +45,6 @@ const LogIn = () => {
       </div>
     </React.Fragment>
   );
-  return <UnauthorizedLayout firstColumn={logInForm} />;
 };
 
 export default LogIn;

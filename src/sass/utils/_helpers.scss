@@ -1,11 +1,19 @@
 .flex-row {
   @include flex;
-  text-align: center;
 }
 
 .flex-column {
   @include flex(column);
-  text-align: center;
+}
+
+.center-horizontally {
+  display: flex;
+  justify-content: center;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center;
 }
 
 .logo {

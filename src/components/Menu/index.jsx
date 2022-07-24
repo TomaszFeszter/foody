@@ -5,11 +5,9 @@ import Button from "../Button";
 import { Paper, Profile } from "../Icons";
 import SubHeading from "../SubHeading";
 import { AuthContext } from "../../context/Auth";
-import { useNavigate } from "react-router-dom";
 
 const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
-  const navigate = useNavigate();
-  const { logout, isLoggedIn } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   return (
     <div
       onBlur={handleClose}

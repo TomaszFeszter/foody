@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   max-width: 120rem;
-  min-height: 100vh;
   margin: 0 auto;
   background-color: $col-white;
+  overflow: hidden;
 
   @media screen and (min-width: 1200px) {
     border-radius: 3rem;
@@ -12,21 +12,18 @@
   }
 }
 
-.layout {
-  flex-grow: 3;
+.grid {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
 
-  .main {
-    margin: 0 auto;
-    flex-grow: 2;
-    height: 100%;
-  }
+  .cell {
+    width: 100%;
 
-  @media screen and (min-width: 800px) {
-    flex-direction: row;
-
-    .aside {
-      flex-shrink: 1;
-      max-width: 35rem;
+    @for $i from 1 to 12 {
+      &--size-#{$i} {
+        max-width: calc(100% / 12 * $i);
+      }
     }
   }
 }
