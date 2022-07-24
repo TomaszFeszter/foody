@@ -6,8 +6,6 @@ import { Cart, Heart, Home, Notification, Search } from "../Icons";
 const NavBar = () => {
   const { cart } = useContext(CartContext);
 
-  console.log(cart);
-  console.log(cart && <span className="status">{cart.products.length}</span>);
   return (
     <div className="nav-bar">
       <NavLink

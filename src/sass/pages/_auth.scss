@@ -12,4 +12,12 @@
   .h3 {
     margin-bottom: 5rem;
   }
+  .form {
+    @include flex(column);
+
+    .btn {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
 }

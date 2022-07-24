@@ -1,11 +1,18 @@
 import React from "react";
 
-function Heading({ children, size, styles = "" }) {
-  if (size === "small") return <h3 className={`h3 ${styles}`}>{children}</h3>;
+function Heading({ children, size, styles = "", tag }) {
+  let CustomTag = `${tag ? tag : "h2"}`;
+  if (size === "small") {
+    CustomTag = `${tag ? tag : "h3"}`;
+    return <CustomTag className={`h3 ${styles}`}>{children}</CustomTag>;
+  }
+  if (size === "big") {
+    CustomTag = `${tag ? tag : "h1"}`;
 
-  if (size === "big") return <h1 className={`h1 ${styles}`}>{children}</h1>;
+    return <CustomTag className={`h1 ${styles}`}>{children}</CustomTag>;
+  }
 
-  return <h2 className={`h2 ${styles}`}>{children}</h2>;
+  return <CustomTag className={`h2 ${styles}`}>{children}</CustomTag>;
 }
 
 export default Heading;

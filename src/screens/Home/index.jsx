@@ -4,12 +4,15 @@ import Heading from "../../components/Heading";
 import { Logo } from "../../components/Icons";
 import Link from "../../components/Links";
 import { AuthContext } from "../../context/Auth";
-import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
+import { Page } from "../../layouts";
+import Category from "../Category";
 import foodImage from "./images/food.png";
 
 const Home = () => {
-  const contextVal = useContext(AuthContext);
-  console.log(contextVal);
+  const { isLoggedIn } = useContext(AuthContext);
+
+  if (isLoggedIn) return <Category />;
+
   const firstColumn = (
     <div className="flex-column pt-16">
       <Logo className="logo mb-16" />
@@ -36,7 +39,10 @@ const Home = () => {
   );
 
   return (
-    <UnauthorizedLayout firstColumn={firstColumn} secondColumn={secondColumn} />
+    <Page>
+      {firstColumn}
+      {secondColumn}
+    </Page>
   );
 };
 

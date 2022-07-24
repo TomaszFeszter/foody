@@ -17,3 +17,7 @@ export const Layout = ({ children, center }) => {
     <div className={`layout ${center ? "layout--center" : ""}`}>{children}</div>
   );
 };
+
+export const Page = ({ children }) => {
+  return <div className="container pl-10 pr-10">{children}</div>;
+};

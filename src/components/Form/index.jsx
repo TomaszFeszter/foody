@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-function Form({ children, onSubmit, ...rest }) {
+function Form({ children, onSubmit, styles = "", ...rest }) {
   const formRef = useRef();
 
   const handleSubmit = (e) => {
@@ -11,7 +11,12 @@ function Form({ children, onSubmit, ...rest }) {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="form" {...rest}>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={`form ${styles}`}
+      {...rest}
+    >
       {children}
     </form>
   );

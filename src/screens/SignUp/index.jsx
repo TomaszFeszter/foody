@@ -9,10 +9,8 @@ import Heading from "../../components/Heading";
 import { Logo } from "../../components/Icons";
 
 const SignUp = () => {
-  const { signUp, isLoggedIn } = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  if (isLoggedIn) navigate("/category");
 
   const onSubmit = (formData) => {
     const email = formData.get("email");
@@ -49,6 +47,9 @@ const SignUp = () => {
           </Field>
           <Button long type="submit">
             Sign up
+          </Button>
+          <Button onClick={() => navigate("/log-in")} long secondary>
+            Go to login
           </Button>
         </Form>
       </div>

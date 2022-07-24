@@ -31,6 +31,21 @@ const API = {
   PUT_PRODUCTS_TO_CART(cartId) {
     return BASE_URL + "carts/" + cartId;
   },
+  GET_PAYMENT_METHODS() {
+    return BASE_URL + "payment-methods/";
+  },
+  GET_PAYMENT_METHOD_BY_ID(paymentMethodId) {
+    return BASE_URL + "payment-methods/" + paymentMethodId;
+  },
+  PUT_PAYMENT_METHOD(paymentMethodId) {
+    return BASE_URL + "carts/" + paymentMethodId;
+  },
+  POST_ORDER() {
+    return BASE_URL + "orders/";
+  },
+  GET_ORDERS() {
+    return BASE_URL + "orders/";
+  },
 };
 
 export default API;

@@ -5,10 +5,10 @@ import API from "../utils/api";
 export const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const { data, run, isLoading } = useFetch();
+  const { data, run, isLoading, setData } = useFetch();
   const userDataReq = useFetch();
   const token = data && data.id;
-  const isLoggedIn = token && userDataReq.data;
+  const isLoggedIn = Boolean(token && userDataReq.data);
 
   const login = ({ email, password }) => {
     if (isLoading) return;
@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     if (isLoading) return;
     run(API.LOGOUT(), { token });
+    setData(null);
   };
 
   return (

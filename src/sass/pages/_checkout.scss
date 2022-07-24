@@ -1,0 +1,70 @@
+.checkout {
+  @include flex(column, center, flex-start);
+  &__user-data {
+    margin-bottom: 4rem;
+    .h1 {
+      margin-bottom: 3rem;
+    }
+    .h3:not(:last-child) {
+      margin-bottom: 1.7rem;
+    }
+  }
+
+  &__payment {
+    .h1 {
+      margin-bottom: 2.5rem;
+    }
+
+    .field {
+      margin-bottom: 3rem;
+    }
+    &__methods {
+      @include flex(row, flex-start);
+      @include gap(false, 2rem);
+      margin-bottom: 2.5rem;
+
+      &__item {
+        @include flex;
+        width: 6rem;
+        height: 6rem;
+        padding: 0.5rem;
+        border-radius: 10px;
+        background-color: $col-white;
+        filter: $ds-40;
+        border: none;
+        position: relative;
+        &--active {
+          border: 1px solid $primary-color;
+          padding: 0.4rem;
+        }
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  &__summary {
+    margin-top: auto;
+    width: 100%;
+
+    &__label,
+    hr {
+      margin-bottom: 1rem;
+    }
+
+    &__label {
+      @include flex(row, space-between);
+    }
+
+    hr {
+      width: 100%;
+    }
+
+    .btn {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+  }
+}

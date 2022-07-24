@@ -6,14 +6,28 @@
   border: none;
   border-radius: 20px;
   box-shadow: $bs-btn;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $primary-color;
+    background-image: none;
+    color: $col-white;
+    cursor: pointer;
+  }
 
   &--white {
     background: $col-white;
     color: $primary-color;
+
+    &:hover {
+      background-color: $col-grey-200;
+      color: $col-black;
+      cursor: pointer;
+    }
   }
 
   &--long {
-    min-width: 30rem;
+    min-width: 2.8rem;
   }
 
   &:disabled {
@@ -31,6 +45,10 @@
   border: 1px solid $col-blue-200;
   border-radius: 5rem;
   transition: all 0.1s;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &__background {
     @include flex(column);
@@ -66,4 +84,5 @@
   border: none;
   background-color: $col-white;
   box-shadow: $bs-20;
+  cursor: pointer;
 }

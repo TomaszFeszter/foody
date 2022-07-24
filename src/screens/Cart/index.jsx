@@ -40,7 +40,7 @@ const Cart = () => {
         </section>
         <div className="cart__summary">
           <Heading size="small">Total</Heading>
-          <Heading>{cart.total}</Heading>
+          <Heading>{`$${cart.total}`}</Heading>
         </div>
         <Button onClick={() => navigate("/checkout")} long>
           Process to payment

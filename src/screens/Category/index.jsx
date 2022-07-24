@@ -1,21 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuthorizedLayout from "../../layouts/AuthorizedLayout";
-import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/Products";
-import { AuthContext } from "../../context/Auth";
 import FilterButton from "../../components/FilterButton";
 import ProductGridItem from "../../components/ProductGridItem";
 import Heading from "../../components/Heading";
 
 const Category = () => {
-  const { isLoggedIn } = useContext(AuthContext);
   const { getCategories, categories, getProductsInCategory, products } =
     useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState(null);
-  const navigate = useNavigate();
-  if (!isLoggedIn) {
-    navigate("/log-in");
-  }
 
   useEffect(() => {
     if (!categories) return;

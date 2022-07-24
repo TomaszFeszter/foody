@@ -11,13 +11,13 @@ export const CartProvider = ({ children }) => {
   const { data: cart } = cartDataReq;
 
   const createCart = useCallback(() => {
-    if (!isLoggedIn || cartDataReq.data || cartDataReq.isLoading) return;
     cartDataReq.run(API.POST_CART(), { method: "POST", token });
-  }, [isLoggedIn, cartDataReq, token]);
+  }, [cartDataReq, token]);
 
   useEffect(() => {
+    if (!isLoggedIn || cartDataReq.data || cartDataReq.isLoading) return;
     createCart();
-  }, [createCart]);
+  }, [cartDataReq.data, cartDataReq.isLoading, createCart, isLoggedIn]);
 
   const putItemToCart = (product) => {
     if (isLoading) return;
@@ -47,6 +47,7 @@ export const CartProvider = ({ children }) => {
       if (cartArr[cartArrIndex].qty > 1) cartArr[cartArrIndex].qty--;
       else cartArr.splice(cartArrIndex, 1);
 
+      // do products przesłać paymentmethod
       cartDataReq.run(API.PUT_PRODUCTS_TO_CART(cart.id), {
         body: JSON.stringify({ products: cartArr }),
         method: "PUT",
@@ -55,13 +56,33 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const putPaymentMethod = (paymentMethodId) => {
+    if (isLoading) return;
+    cartDataReq.run(API.PUT_PAYMENT_METHOD(cart.id), {
+      body: JSON.stringify({ paymentMethod: paymentMethodId }),
+      method: "PUT",
+      token,
+    });
+  };
+
+  const putAddress = (address = {}) => {
+    if (isLoading) return;
+    cartDataReq.run(API.PUT_PAYMENT_METHOD(cart.id), {
+      body: JSON.stringify({ address }),
+      method: "PUT",
+      token,
+    });
+  };
+
   return (
     <CartContext.Provider
       value={{
         createCart,
         putItemToCart,
         deleteItemFromCart,
+        putPaymentMethod,
         cart: cartDataReq.data,
+        putAddress,
       }}
     >
       {children}

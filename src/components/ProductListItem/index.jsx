@@ -15,6 +15,7 @@ function ProductListItem({
   qty = "0",
   increment,
   decrement,
+  handleClick,
 }) {
   return (
     <div className="product-list-item">
@@ -30,7 +31,7 @@ function ProductListItem({
         {addToCart && (
           <AddToCart qty={qty} increment={increment} decrement={decrement} />
         )}
-        {orderAgain && <Link>Order again</Link>}
+        {orderAgain && <Link onClick={orderAgain}>Order again</Link>}
       </div>
       {flag && <span className="flag">{flag}</span>}
     </div>
