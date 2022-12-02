@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../context/Auth";
+import React, { useState } from "react";
 import BackButton, { MenuButton } from "../BackButton";
 import Menu from "../Menu";
 
-const AppNavigation = ({ showBackButton }) => {
+const AppNavigation = ({ showBackButton, user }) => {
   const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
 
   if (!user) return null;
   return (

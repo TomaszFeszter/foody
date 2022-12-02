@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Page = ({ children, modifier = "" }) => {
-  return <div className={`container pl-10 pr-10 ${modifier}`}>{children}</div>;
+  return <div className={`container ${modifier}`}>{children}</div>;
 };
 
 export const Grid = ({ children, modifier = "" }) => {

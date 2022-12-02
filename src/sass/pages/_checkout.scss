@@ -1,5 +1,6 @@
 .checkout {
   @include flex(column, center, flex-start);
+  padding: 2rem 1.5rem 2rem 1rem;
   &__user-data {
     margin-bottom: 4rem;
     .h1 {
@@ -63,7 +64,6 @@
     }
 
     .btn {
-      margin-bottom: 2rem;
       width: 100%;
     }
   }

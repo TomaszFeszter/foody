@@ -5,8 +5,10 @@ import Button from "../Button";
 import { Paper, Profile } from "../Icons";
 import SubHeading from "../SubHeading";
 import { AuthContext } from "../../context/Auth";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
+  const isDesktop = useMediaQuery("(min-width: 1200px)");
   const { logout } = useContext(AuthContext);
   return (
     <div
@@ -14,7 +16,7 @@ const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
       tabIndex={0}
       className={`menu ${open ? "menu--active" : ""} pl-10 pt-16`}
     >
-      <CloseButton onClick={handleClose} />
+      {!isDesktop && <CloseButton onClick={handleClose} />}
       <section className="menu__user mb-20">
         <figure className="menu__user__avatar mb-6">
           <img src={userImg} alt="user avatar" />

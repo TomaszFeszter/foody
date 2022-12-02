@@ -5,10 +5,13 @@
   padding: 2.2rem 1.1rem;
   position: relative;
   overflow: hidden;
-  box-shadow: $bs-btn;
-
+  box-shadow: $bs-40;
+  @media screen and (min-width: 1200px) {
+    box-shadow: $bs-20;
+  }
   .product-img {
     margin-right: 1rem;
+    flex-shrink: 0;
   }
 
   .details {
@@ -24,11 +27,19 @@
     line-height: 1;
     letter-spacing: 0.1rem;
     transform: rotate(45deg);
-    top: -14%;
-    right: -13%;
+
     transform-origin: 0 0;
     font-size: 1.1rem;
     color: $col-white;
     font-weight: 400;
+    top: -14%;
+    right: -21%;
+    @media screen and (min-width: 330px) {
+      right: -18%;
+    }
+    @media screen and (min-width: 375px) {
+      top: -15%;
+      right: -15%;
+    }
   }
 }

@@ -1,11 +1,11 @@
 import React from "react";
-import Category from "../../features/Category";
+import Cart from "../../features/Cart";
 import AppLayout from "../../layouts/AppLayout";
 
 const CartPage = () => {
   return (
     <AppLayout>
-      <Category />
+      <Cart />
     </AppLayout>
   );
 };

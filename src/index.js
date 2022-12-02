@@ -61,7 +61,7 @@ export default function App() {
         }
       />
       <Route
-        path="/cart/"
+        path="/cart"
         element={
           <PrivateRoute mustBeAuthorized redirectTo="/log-in">
             <Cart />

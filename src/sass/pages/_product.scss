@@ -3,13 +3,19 @@
   max-width: 37.5rem;
   height: 100%;
   margin: 0 auto;
+  overflow: auto;
+  @media screen and (min-width: 1200px) {
+    height: calc(100% - 10rem);
+  }
 
   .product-img,
   .add-to-cart {
     margin-bottom: 3rem;
+    flex-shrink: 0;
   }
 
   &__info {
+    padding: 0 1rem;
     width: 100%;
     margin-bottom: auto;
     @include flex(column, flex-start, flex-start);

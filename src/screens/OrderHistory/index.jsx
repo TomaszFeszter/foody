@@ -22,11 +22,11 @@ const OrderHistory = () => {
       <div className="orders">
         <Heading size="big">Your orders</Heading>
         <section className="orders__list">
-          {data &&
+          {data ? (
             data.map((order) => {
               const date = new Date(order.createdAt);
               return (
-                <div className="order__list__item" key={order.id}>
+                <div className="orders__list__item" key={order.id}>
                   <Heading>{date.toLocaleString()}</Heading>
                   {order.products.map((product) => {
                     return (
@@ -44,7 +44,10 @@ const OrderHistory = () => {
                   })}
                 </div>
               );
-            })}
+            })
+          ) : (
+            <Heading>No orders placed</Heading>
+          )}
         </section>
       </div>
     </AppLayout>

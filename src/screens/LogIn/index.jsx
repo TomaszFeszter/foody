@@ -13,15 +13,15 @@ const LogInPage = () => {
       <Grid>
         {isDesktop ? (
           <>
-            <Cell size={6} modifier="center-horizontally">
+            <Cell size={6} modifier="center-horizontally pt-20 pb-20">
               <LogIn />
             </Cell>
-            <Cell size={6} modifier="center-horizontally">
+            <Cell size={6} modifier="center-horizontally pt-20 pb-20">
               <SignUp />
             </Cell>
           </>
         ) : (
-          <Cell modifier={"center-horizontally"}>
+          <Cell modifier={"center-vertically"}>
             <LogIn />
           </Cell>
         )}

@@ -1,6 +1,6 @@
 .add-to-cart {
-  @include flex;
-  @include gap(false, 1rem);
+  @include flex(row, space-between);
+  width: 7.5rem;
   .qty-btn {
     width: 2.4rem;
     height: 2.4rem;
@@ -15,6 +15,7 @@
   }
 
   &--all-in-one {
+    padding: 1rem;
     width: 10rem;
     height: 5rem;
     border-radius: 3rem;

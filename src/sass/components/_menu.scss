@@ -1,7 +1,7 @@
 .menu {
   @include flex(column, center, flex-start);
   position: absolute;
-  left: -2rem;
+  left: 0;
   top: 0;
   z-index: 2;
   background-color: $col-white;
@@ -13,13 +13,12 @@
 
   &--active {
     transform: translateX(0);
+    @media screen and (min-width: 1200px) {
+      width: 100%;
+    }
   }
   button {
     margin-bottom: 2.4rem;
-
-    @media screen and (min-width: 1200px) {
-      display: none;
-    }
   }
 
   &__user {
@@ -49,7 +48,6 @@
 
   @media screen and (min-width: 1200px) {
     position: static;
-    margin-left: -4rem;
     height: 100%;
   }
 }

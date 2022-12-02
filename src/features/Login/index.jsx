@@ -6,8 +6,10 @@ import { AuthContext } from "../../context/Auth";
 import { Logo } from "../../components/Icons";
 import Heading from "../../components/Heading";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const LogIn = () => {
+  const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ const LogIn = () => {
   return (
     <React.Fragment>
       <div className="auth">
-        <Logo className="logo" />
+        {isDesktop && <Logo className="logo" />}
         <Heading size="big">Login to your account</Heading>
         <Heading size="small">
           Good to see you again, enter your details below to continue ordering.{" "}
@@ -38,9 +40,11 @@ const LogIn = () => {
           <Button long type="submit">
             Log In
           </Button>
-          <Button onClick={() => navigate("/sign-up")} long secondary>
-            Create an account
-          </Button>
+          {isDesktop && (
+            <Button onClick={() => navigate("/sign-up")} long secondary>
+              Create an account
+            </Button>
+          )}
         </Form>
       </div>
     </React.Fragment>

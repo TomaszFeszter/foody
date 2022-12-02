@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import AppNavigation from "../components/AppNavigation";
 import Menu from "../components/Menu";
 import NavBar from "../components/NavBar";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { Cell, Grid, Page } from "../layouts";
 import Cart from "../features/Cart";
+import { AuthContext } from "../context/Auth";
 
-const AppLayout = ({ children }) => {
+export const AppLayout = ({ children }) => {
   const isDesktop = useMediaQuery("(min-width: 1200px)");
+  const { user } = useContext(AuthContext);
 
   return (
     <Page>
@@ -15,9 +17,14 @@ const AppLayout = ({ children }) => {
         {isDesktop ? (
           <>
             <Cell size={2} modifier="center-horizontally">
-              <Menu open />
+              <Menu
+                open
+                userName={user.email}
+                userEmail={user.phoneNumbers[0]}
+                userImg={user.avatar}
+              />
             </Cell>
-            <Cell size={6} modifier="pt-10 pb-10">
+            <Cell size={6}>
               <NavBar />
               {children}
             </Cell>
@@ -27,7 +34,7 @@ const AppLayout = ({ children }) => {
           </>
         ) : (
           <Cell>
-            <AppNavigation />
+            <AppNavigation user={user} />
             {children}
             <NavBar />
           </Cell>

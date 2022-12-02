@@ -1,4 +1,9 @@
 .category {
+  padding: 1rem;
+  overflow-y: auto;
+  @media screen and (min-width: 1200px) {
+    height: calc(100% - 10rem);
+  }
   .h1 {
     margin-bottom: 5rem;
   }

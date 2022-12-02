@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 import Heading from "../../components/Heading";
 import { Logo } from "../../components/Icons";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const SignUp = () => {
+  const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { signUp } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ const SignUp = () => {
   return (
     <React.Fragment>
       <div className="auth">
-        <Logo className="logo" />
+        {isDesktop && <Logo className="logo" />}
         <Heading size="big">Create an account</Heading>
         <Heading size="small">
           Welcome friend, enter your details so lets get started in ordering
@@ -47,9 +49,11 @@ const SignUp = () => {
           <Button long type="submit">
             Sign up
           </Button>
-          <Button onClick={() => navigate("/log-in")} long secondary>
-            Go to login
-          </Button>
+          {isDesktop && (
+            <Button onClick={() => navigate("/log-in")} long secondary>
+              Go to login
+            </Button>
+          )}
         </Form>
       </div>
     </React.Fragment>

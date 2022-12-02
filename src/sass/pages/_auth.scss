@@ -1,8 +1,9 @@
 .auth {
-  @include flex(column, center, flex-start);
+  @include flex(column, flex-start, flex-start);
   max-width: 30rem;
 
   .logo {
+    flex-shrink: 0;
     align-self: center;
     margin-top: 3rem;
     margin-bottom: 5rem;

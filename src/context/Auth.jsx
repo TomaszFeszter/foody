@@ -33,8 +33,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!token || userDataReq.isLoading || userDataReq.data) return;
-
+    if (
+      !token ||
+      userDataReq.isLoading ||
+      userDataReq.isError ||
+      userDataReq.data
+    )
+      return;
     userDataReq.run(API.GET_USER_DATA(), { token });
   }, [token, userDataReq]);
 
@@ -42,6 +47,8 @@ export const AuthProvider = ({ children }) => {
     if (isLoading) return;
     run(API.LOGOUT(), { token });
     setData(null);
+    userDataReq.setData(null);
+    sessionStorage.removeItem("token");
   };
 
   return (

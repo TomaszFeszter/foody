@@ -24,7 +24,7 @@ function ProductListItem({
         <SubHeading size="big">{caption}</SubHeading>
         <SubHeading>{description}</SubHeading>
         <SubHeading modifier="price" size="big">
-          {price}
+          {price} $
         </SubHeading>
       </div>
       <div className="cta">
