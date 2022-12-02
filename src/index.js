@@ -16,6 +16,8 @@ import Fail from "./screens/Fail";
 import Success from "./screens/Success";
 import OrderHistory from "./screens/OrderHistory";
 import CategoryPage from "./screens/Category";
+import { Wishlist } from "./screens/Wishlist";
+import { FavouritesProvider } from "./context/Favourites";
 
 export default function App() {
   return (
@@ -31,8 +33,16 @@ export default function App() {
       <Route
         path="/sign-up"
         element={
-          <PrivateRoute mustBeAuthorized={false} redirectTo="/">
+          <PrivateRoute mustBeAuthorized={false} redirectTo="/category">
             <SignUp />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/log-in"
+        element={
+          <PrivateRoute mustBeAuthorized={false} redirectTo="/category">
+            <LogIn />
           </PrivateRoute>
         }
       />
@@ -41,14 +51,6 @@ export default function App() {
         element={
           <PrivateRoute mustBeAuthorized={true} redirectTo="/">
             <CategoryPage />
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/log-in"
-        element={
-          <PrivateRoute mustBeAuthorized={false} redirectTo="/">
-            <LogIn />
           </PrivateRoute>
         }
       />
@@ -85,7 +87,7 @@ export default function App() {
         }
       />
       <Route
-        path="/success/"
+        path="/success"
         element={
           <PrivateRoute mustBeAuthorized redirectTo="/log-in">
             <Success />
@@ -93,10 +95,18 @@ export default function App() {
         }
       />
       <Route
-        path="/order-history/"
+        path="/order-history"
         element={
           <PrivateRoute mustBeAuthorized redirectTo="/log-in">
             <OrderHistory />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/wishlist"
+        element={
+          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+            <Wishlist />
           </PrivateRoute>
         }
       />
@@ -110,9 +120,11 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <ProductProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
+          <FavouritesProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </FavouritesProvider>
         </ProductProvider>
       </AuthProvider>
     </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AddToCart from "../../components/AddToCart";
+import BackButton from "../../components/BackButton";
 import Button from "../../components/Button";
 import Description from "../../components/Description";
 import Heading from "../../components/Heading";
@@ -9,9 +10,11 @@ import ProductImg from "../../components/ProductImg";
 import SubHeading from "../../components/SubHeading";
 import { CartContext } from "../../context/Cart";
 import { ProductContext } from "../../context/Products";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import AppLayout from "../../layouts/AppLayout";
 
 const Product = () => {
+  const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { getProduct, product } = useContext(ProductContext);
   const {
     putItemToCart: increment,
@@ -34,6 +37,7 @@ const Product = () => {
   return (
     <AppLayout>
       <div className="product">
+        {isDesktop && <BackButton />}
         <ProductImg type="big" src={images.big} />
         <AddToCart
           qty={qty}

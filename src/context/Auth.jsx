@@ -4,13 +4,16 @@ import API from "../utils/api";
 
 export const AuthContext = React.createContext(null);
 
-const tokenFromStorage = sessionStorage.getItem("token");
-
 export const AuthProvider = ({ children }) => {
   const { data, run, isLoading, setData } = useFetch();
   const userDataReq = useFetch();
+  const tokenFromStorage = sessionStorage.getItem("token");
   const token = tokenFromStorage ? tokenFromStorage : data && data.id;
   const isLoggedIn = Boolean(token && userDataReq.data);
+
+  useEffect(() => {
+    if (token) sessionStorage.setItem("token", token);
+  }, [token]);
 
   useEffect(() => {
     if (token) sessionStorage.setItem("token", token);

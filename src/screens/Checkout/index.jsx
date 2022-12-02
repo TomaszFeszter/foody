@@ -9,8 +9,11 @@ import Form from "../../components/Form";
 import { CartContext } from "../../context/Cart";
 import { useNavigate } from "react-router-dom";
 import AppLayout from "../../layouts/AppLayout";
+import BackButton from "../../components/BackButton";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Checkout = () => {
+  const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { token, user } = useContext(AuthContext);
   const { cart, putPaymentMethod, putAddress, createCart } =
     useContext(CartContext);
@@ -63,6 +66,7 @@ const Checkout = () => {
   return (
     <AppLayout>
       <Form styles="checkout" onSubmit={completeOrder}>
+        {isDesktop && <BackButton />}
         <section className="checkout__user-data">
           <Heading size="big">Delivery method</Heading>
           <Field label="Postal Code">

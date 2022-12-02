@@ -6,9 +6,10 @@ import Button from "../../components/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import BackButton from "../../components/BackButton";
 
 const Cart = () => {
-  const isDesktop = useMediaQuery("(min-width: 1200px)");
+  const isMobile = useMediaQuery("(min-width: 1200px)");
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const {
@@ -18,12 +19,13 @@ const Cart = () => {
   } = useContext(CartContext);
 
   useEffect(() => {
-    if (isDesktop && pathname === "/cart") navigate("/category");
-  }, [isDesktop, pathname, navigate]);
+    if (isMobile && pathname === "/cart") navigate("/category");
+  }, [isMobile, pathname, navigate]);
 
   if (!cart) return <Loader />;
   return (
     <div className="cart">
+      {!isMobile && <BackButton />}
       <Heading size="big">Your cart</Heading>
       <section className="cart__products">
         {cart.products.length ? (

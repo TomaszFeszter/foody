@@ -7,7 +7,11 @@
   @media screen and (min-width: 1200px) {
     height: calc(100% - 10rem);
   }
-
+  .nav-btn {
+    position: absolute;
+    left: 8rem;
+    top: 4rem;
+  }
   .product-img,
   .add-to-cart {
     margin-bottom: 3rem;

@@ -1,11 +1,20 @@
 .checkout {
   @include flex(column, center, flex-start);
   padding: 2rem 1.5rem 2rem 1rem;
+
+  .nav-btn {
+    position: absolute;
+    left: 8rem;
+    top: 4rem;
+  }
+
   &__user-data {
     margin-bottom: 4rem;
+
     .h1 {
       margin-bottom: 3rem;
     }
+
     .h3:not(:last-child) {
       margin-bottom: 1.7rem;
     }
@@ -19,6 +28,7 @@
     .field {
       margin-bottom: 3rem;
     }
+
     &__methods {
       @include flex(row, flex-start);
       @include gap(false, 2rem);
@@ -34,6 +44,7 @@
         filter: $ds-40;
         border: none;
         position: relative;
+
         &--active {
           border: 1px solid $primary-color;
           padding: 0.4rem;

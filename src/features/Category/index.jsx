@@ -7,11 +7,23 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 // Default theme
 import "@splidejs/react-splide/css";
 import Loader from "../../components/Loader";
+import { FavouritesContext } from "../../context/Favourites";
 
 const Category = () => {
+  const { setFavourite, favouriteProducts } = useContext(FavouritesContext);
   const { getCategories, categories, getProductsInCategory, products } =
     useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [productsArr, setProductsArr] = useState(null);
+
+  useEffect(() => {
+    let newArr = [];
+    Array.from(favouriteProducts).map((item) => {
+      return newArr.push(JSON.parse(item));
+    });
+    setProductsArr(newArr);
+    console.log(productsArr);
+  }, [favouriteProducts]);
 
   useEffect(() => {
     if (!categories) return;
@@ -76,6 +88,8 @@ const Category = () => {
                   caption={name}
                   description={short}
                   rating={rating}
+                  setFavourite={setFavourite}
+                  isFavourite={favouriteProducts.has(id)}
                 />
               </SplideSlide>
             ))}
