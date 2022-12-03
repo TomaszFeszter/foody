@@ -3,14 +3,20 @@
   max-width: 37.5rem;
   height: 100%;
   margin: 0 auto;
+  padding-top: 4rem;
   overflow: auto;
   @media screen and (min-width: 1200px) {
     height: calc(100% - 10rem);
+    position: relative;
   }
   .nav-btn {
     position: absolute;
     left: 8rem;
     top: 4rem;
+    @media screen and (min-width: 1200px) {
+      left: 0;
+      top: 1rem;
+    }
   }
   .product-img,
   .add-to-cart {

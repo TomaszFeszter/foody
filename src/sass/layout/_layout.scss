@@ -9,6 +9,10 @@
 
   @media screen and (min-width: 1200px) {
     border-radius: 3rem;
+    margin: 2rem auto;
+    height: calc(100vh - 4rem);
+  }
+  @media screen and (min-width: 1350px) {
     margin: 4rem auto;
     height: calc(100vh - 8rem);
   }

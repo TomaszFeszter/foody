@@ -1,0 +1,37 @@
+.wishlist {
+  padding: 2rem 1rem;
+  @include flex(column, center, flex-start);
+
+  @media screen and (min-width: 1200px) {
+    height: calc(100% - 10rem);
+    position: relative;
+  }
+  .nav-btn {
+    position: absolute;
+    left: 8rem;
+    top: 4rem;
+    @media screen and (min-width: 1200px) {
+      left: 0;
+      top: 1.5rem;
+    }
+  }
+  .h1 {
+    @media screen and (min-width: 1200px) {
+      padding-left: 6rem;
+    }
+    margin-bottom: 2rem;
+  }
+  &__content {
+    @include flex(row);
+    @include gap(2rem, 2rem);
+    flex-wrap: wrap;
+    overflow: auto;
+    margin: 0 auto;
+    @media screen and (min-width: 1200px) {
+      max-width: 52rem;
+      .product-grid-item:last-child {
+        margin-right: auto;
+      }
+    }
+  }
+}

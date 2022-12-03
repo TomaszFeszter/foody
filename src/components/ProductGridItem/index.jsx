@@ -11,7 +11,7 @@ function ProductGridItem({
   description = "",
   rating = "",
   id,
-  setFavourite,
+  setFavorite,
   isFavourite,
 }) {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function ProductGridItem({
         <div
           className={isFavourite ? "like like--checked" : "like"}
           onClick={() => {
-            setFavourite(JSON.stringify(item));
+            setFavorite(item);
           }}
         >
           <Heart />
