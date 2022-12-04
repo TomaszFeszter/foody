@@ -1,37 +1,49 @@
 .wishlist {
-  padding: 2rem 1rem;
-  @include flex(column, center, flex-start);
+  padding: 0.8rem 1rem 1rem;
+  height: calc(100vh - 20rem);
+  @include flex(column, flex-start);
 
-  @media screen and (min-width: 1200px) {
-    height: calc(100% - 10rem);
-    position: relative;
-  }
   .nav-btn {
     position: absolute;
     left: 8rem;
     top: 4rem;
-    @media screen and (min-width: 1200px) {
-      left: 0;
-      top: 1.5rem;
-    }
   }
   .h1 {
-    @media screen and (min-width: 1200px) {
-      padding-left: 6rem;
-    }
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-right: auto;
   }
   &__content {
-    @include flex(row);
+    @include flex(row, center, flex-start);
     @include gap(2rem, 2rem);
     flex-wrap: wrap;
     overflow: auto;
     margin: 0 auto;
-    @media screen and (min-width: 1200px) {
-      max-width: 52rem;
-      .product-grid-item:last-child {
+
+    @media screen and (min-width: 555px) {
+      justify-content: flex-start;
+      .product-grid-item:last-child:nth-child(2n + 1) {
         margin-right: auto;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wishlist {
+    position: relative;
+    height: calc(100% - 10rem);
+    padding-bottom: 0;
+
+    .nav-btn {
+      left: 1rem;
+      top: 0.4rem;
+    }
+
+    .h1 {
+      padding-left: 6rem;
+    }
+    &__content {
+      max-width: 53.7rem;
     }
   }
 }
