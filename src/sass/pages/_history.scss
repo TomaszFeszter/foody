@@ -1,10 +1,10 @@
 .orders {
   @include flex(column, flex-start);
-  padding: 2rem 1rem;
-  overflow: auto;
+  padding: 2rem 1rem 0;
+  height: calc(100vh - 20rem);
   @media screen and (min-width: 1200px) {
     position: relative;
-    height: calc(100% - 10rem);
+    height: calc(100% - 8.2rem);
   }
   .nav-btn {
     position: absolute;
@@ -19,7 +19,9 @@
     margin-bottom: 3rem;
   }
   &__list {
-    padding: 0 1rem;
+    padding: 2rem 2rem 0;
+    margin-bottom: 2.4rem;
+    overflow: auto;
     &__item {
       @include flex(column);
       @include gap(1rem);

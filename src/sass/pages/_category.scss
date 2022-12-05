@@ -1,6 +1,14 @@
 .category {
   padding: 1rem;
   overflow-y: auto;
+
+  &__products {
+    .splide {
+      &__track {
+        min-height: 30rem;
+      }
+    }
+  }
   @media screen and (min-width: 1200px) {
     height: calc(100% - 10rem);
   }

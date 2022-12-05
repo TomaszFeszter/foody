@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/Cart";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import Heading from "../Heading";
-import { Cart, Heart, Home, Notification, Search } from "../Icons";
+import { Cart, Heart, Home } from "../Icons";
 
 const NavBar = () => {
   const isDesktop = useMediaQuery("(min-width: 1200px)");

@@ -47,6 +47,23 @@ const SignUp = () => {
           Welcome friend, enter your details so lets get started in ordering
           food.
         </Heading>
+        {isDesktop ? (
+          <div className="auth__dev col-red">
+            <Heading>You can login to test account.</Heading>
+            <div className="auth__dev__group">
+              <Heading>Email:</Heading>
+              <Heading size="small" styles="italic">
+                {process.env.REACT_APP_TEST_ACCOUNT_EMAIL}
+              </Heading>
+            </div>
+            <div className="auth__dev__group">
+              <Heading>Password:</Heading>
+              <Heading size="small" styles="italic">
+                {process.env.REACT_APP_TEST_ACCOUNT_EMAIL}
+              </Heading>
+            </div>
+          </div>
+        ) : null}
         <Form onSubmit={onSubmit}>
           <Field label="First name">
             <Input type="text" name="first-name" placeholder="First name" />

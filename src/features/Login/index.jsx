@@ -8,6 +8,8 @@ import Heading from "../../components/Heading";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
+console.log();
+
 const LogIn = () => {
   const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { login } = useContext(AuthContext);
@@ -21,7 +23,6 @@ const LogIn = () => {
 
     login({ email, password });
   };
-
   return (
     <React.Fragment>
       <div className="auth">
@@ -30,6 +31,21 @@ const LogIn = () => {
         <Heading size="small">
           Good to see you again, enter your details below to continue ordering.{" "}
         </Heading>
+        <div className="auth__dev col-red">
+          <Heading>You can login to test account.</Heading>
+          <div className="auth__dev__group">
+            <Heading>Email:</Heading>
+            <Heading size="small" styles="italic">
+              {process.env.REACT_APP_TEST_ACCOUNT_EMAIL}
+            </Heading>
+          </div>
+          <div className="auth__dev__group">
+            <Heading>Password:</Heading>
+            <Heading size="small" styles="italic">
+              {process.env.REACT_APP_TEST_ACCOUNT_EMAIL}
+            </Heading>
+          </div>
+        </div>
         <Form onSubmit={onSubmit}>
           <Field label="Email">
             <Input type="email" name="email" placeholder="Email" />
