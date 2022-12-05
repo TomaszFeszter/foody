@@ -19,7 +19,7 @@ export const AppLayout = ({ children }) => {
             <Cell size={2} modifier="center-horizontally">
               <Menu open />
             </Cell>
-            <Cell size={6}>
+            <Cell size={6} modifier="cell--main-content">
               <NavBar />
               {children}
             </Cell>
