@@ -1,5 +1,5 @@
-.wishlist {
-  padding: 0.8rem 1rem 1rem;
+.profile {
+  padding: 2rem 1rem;
   height: calc(100vh - 20rem);
   @include flex(column, flex-start, flex-start);
 
@@ -9,40 +9,38 @@
     top: 4rem;
   }
   .h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-right: auto;
   }
   &__content {
-    @include flex(row, center, flex-start);
+    @include flex(column, flex-start, flex-start);
     @include gap(2rem, 2rem);
-    flex-wrap: wrap;
+    padding: 1rem 4rem;
     overflow: auto;
-
-    @media screen and (min-width: 555px) {
-      justify-content: flex-start;
-      .product-grid-item:last-child:nth-child(2n + 1) {
-        margin-right: auto;
-      }
-    }
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .wishlist {
+  .profile {
     position: relative;
     height: calc(100% - 10rem);
-    padding-bottom: 0;
 
     .nav-btn {
       left: 1rem;
-      top: 0.4rem;
+      top: 1.5rem;
     }
 
     .h1 {
       padding-left: 6rem;
     }
     &__content {
-      max-width: 53.7rem;
+      width: 100%;
+      .avatar {
+        align-self: center;
+      }
+      &__group {
+        margin-right: auto;
+      }
     }
   }
 }

@@ -17,6 +17,10 @@
       width: 100%;
     }
   }
+  > svg {
+    margin: 0 auto;
+    transform: translateX(-2rem);
+  }
   button {
     margin-bottom: 2.4rem;
   }
@@ -32,16 +36,25 @@
   }
 
   &__options {
+    margin-top: 5rem;
     margin-bottom: auto;
 
     &__item {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       svg {
         margin-right: 1rem;
       }
       a {
         @include flex(row, flex-start, center);
         text-decoration: none;
+      }
+      .link {
+        padding: 1rem 1.5rem;
+        border-radius: 2rem;
+        &--active {
+          background: $lin-gradient-orange;
+          box-shadow: $bs-30;
+        }
       }
     }
   }

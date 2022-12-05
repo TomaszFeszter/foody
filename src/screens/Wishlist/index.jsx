@@ -35,13 +35,6 @@ export const Wishlist = () => {
           ) : (
             <Heading>No products liked</Heading>
           )}
-          {/* {favouriteProducts && favouriteProducts.length ? (
-            favouriteProducts.map((id) => {
-              return id;
-            })
-          ) : (
-            <Heading>No products liked</Heading>
-          )} */}
         </div>
       </section>
     </AppLayout>

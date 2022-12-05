@@ -5,12 +5,10 @@ import ProductListItem from "../../components/ProductListItem";
 import { AuthContext } from "../../context/Auth";
 import { CartContext } from "../../context/Cart";
 import useFetch from "../../hooks/useFetch";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import AppLayout from "../../layouts/AppLayout";
 import API from "../../utils/api";
 
 const OrderHistory = () => {
-  const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { token } = useContext(AuthContext);
   const { putItemToCart } = useContext(CartContext);
   const { data, run, isLoading } = useFetch();
@@ -23,7 +21,7 @@ const OrderHistory = () => {
   return (
     <AppLayout>
       <div className="orders">
-        {isDesktop && <BackButton />}
+        <BackButton />
         <Heading size="big">Your orders</Heading>
         <section className="orders__list">
           {data && data.length ? (

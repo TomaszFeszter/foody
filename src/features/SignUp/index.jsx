@@ -14,13 +14,28 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (formData) => {
+    const firstName = formData.get("first-name");
+    const lastName = formData.get("last-name");
     const email = formData.get("email");
+    // const phoneNumber = formData.get("phone");
     const password = formData.get("password");
     const passwordConfirm = formData.get("password-confirm");
 
-    if (!email || !password || !passwordConfirm || password !== passwordConfirm)
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !password ||
+      !passwordConfirm ||
+      password !== passwordConfirm
+    )
       return;
-    signUp({ email, password });
+    signUp({
+      email,
+      password,
+      firstName,
+      lastName,
+    });
   };
 
   return (
@@ -33,8 +48,22 @@ const SignUp = () => {
           food.
         </Heading>
         <Form onSubmit={onSubmit}>
+          <Field label="First name">
+            <Input type="text" name="first-name" placeholder="First name" />
+          </Field>
+          <Field label="Last name">
+            <Input type="text" name="last-name" placeholder="Last name" />
+          </Field>
           <Field label="Email">
             <Input type="email" name="email" placeholder="Email" />
+          </Field>
+          <Field label="Phone number">
+            <Input
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+              name="phone"
+              placeholder="Number format: 123-456-789"
+            />
           </Field>
           <Field label="Password">
             <Input type="password" name="password" placeholder="Password" />

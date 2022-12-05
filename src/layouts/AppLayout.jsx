@@ -17,12 +17,7 @@ export const AppLayout = ({ children }) => {
         {isDesktop ? (
           <>
             <Cell size={2} modifier="center-horizontally">
-              <Menu
-                open
-                userName={user.email}
-                userEmail={user.phoneNumbers[0]}
-                userImg={user.avatar}
-              />
+              <Menu open />
             </Cell>
             <Cell size={6}>
               <NavBar />

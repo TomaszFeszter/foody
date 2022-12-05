@@ -3,12 +3,17 @@
   padding: 2rem 1rem;
   overflow: auto;
   @media screen and (min-width: 1200px) {
+    position: relative;
     height: calc(100% - 10rem);
   }
   .nav-btn {
     position: absolute;
     left: 8rem;
     top: 4rem;
+    @media screen and (min-width: 1200px) {
+      left: 0;
+      top: 1rem;
+    }
   }
   .h1 {
     margin-bottom: 3rem;

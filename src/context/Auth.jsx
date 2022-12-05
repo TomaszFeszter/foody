@@ -27,10 +27,10 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  const signUp = ({ email, password }) => {
+  const signUp = ({ firstName, lastName, email, password }) => {
     if (isLoading) return;
     run(API.SIGN_UP(), {
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ firstName, lastName, email, password }),
       method: "POST",
     });
   };

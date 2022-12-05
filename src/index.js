@@ -18,6 +18,7 @@ import OrderHistory from "./screens/OrderHistory";
 import CategoryPage from "./screens/Category";
 import { Wishlist } from "./screens/Wishlist";
 import { FavouritesProvider } from "./context/Favourites";
+import { Profile } from "./screens/Profile";
 
 export default function App() {
   return (
@@ -57,7 +58,7 @@ export default function App() {
       <Route
         path="/products/:productId"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Product />
           </PrivateRoute>
         }
@@ -65,7 +66,7 @@ export default function App() {
       <Route
         path="/cart"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Cart />
           </PrivateRoute>
         }
@@ -73,7 +74,7 @@ export default function App() {
       <Route
         path="/checkout/"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Checkout />
           </PrivateRoute>
         }
@@ -81,7 +82,7 @@ export default function App() {
       <Route
         path="/fail"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Fail />
           </PrivateRoute>
         }
@@ -89,7 +90,7 @@ export default function App() {
       <Route
         path="/success"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Success />
           </PrivateRoute>
         }
@@ -97,7 +98,7 @@ export default function App() {
       <Route
         path="/order-history"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <OrderHistory />
           </PrivateRoute>
         }
@@ -105,8 +106,16 @@ export default function App() {
       <Route
         path="/wishlist"
         element={
-          <PrivateRoute mustBeAuthorized redirectTo="/log-in">
+          <PrivateRoute mustBeAuthorized redirectTo="/">
             <Wishlist />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute mustBeAuthorized redirectTo="/">
+            <Profile />
           </PrivateRoute>
         }
       />

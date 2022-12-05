@@ -20,6 +20,7 @@ export { ReactComponent as Work } from "./icons/work.svg";
 export { ReactComponent as Error } from "./icons/error.svg";
 export { ReactComponent as Fire } from "./icons/fire.svg";
 export { ReactComponent as Clock } from "./icons/clock.svg";
+export { ReactComponent as User } from "./icons/user.svg";
 
 export const Heart = (props) => {
   return <HeartIcon className="stroke-grey" {...props} />;
