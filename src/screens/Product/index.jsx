@@ -47,7 +47,7 @@ const Product = () => {
           <Heading size="big">{name}</Heading>
           <div className="product__info__labels">
             <RatingLabel>{rating}</RatingLabel>
-            <KcalLabel>{kcal}</KcalLabel>
+            <KcalLabel>{kcal} kcal</KcalLabel>
             <TimeLabel>{prepTime}</TimeLabel>
           </div>
           <Description content={description} />
