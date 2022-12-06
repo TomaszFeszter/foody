@@ -12,7 +12,7 @@ const isDevelopment = process.env.REACT_APP_ENV === "development";
 
 const BASE_URL = isDevelopment
   ? process.env.REACT_APP_DEV_API_URL
-  : process.env.REACT_APP_HOST_URL;
+  : process.env.REACT_APP_PROD_API_URL;
 
 const Category = () => {
   const { setFavorite, favouriteProducts } = useContext(FavouritesContext);
