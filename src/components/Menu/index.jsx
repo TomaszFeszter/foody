@@ -21,7 +21,9 @@ const Menu = ({ userName, userEmail, userImg, open, handleClose }) => {
         <li className="menu__options__item">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "link link--black link--active" : "link link--black"
+              isActive
+                ? "link link--black link--active  link--fill"
+                : "link link--black"
             }
             to="/profile"
           >
