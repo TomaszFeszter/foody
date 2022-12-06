@@ -1,0 +1,58 @@
+.flex-row {
+  @include flex;
+}
+
+.flex-column {
+  @include flex(column);
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.center-horizontally {
+  display: flex;
+  justify-content: center;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 3.4rem;
+  height: 2.4rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.full-screen {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.price {
+  color: $primary-color;
+}
+
+.col-red {
+  color: $col-red-600;
+}
+
+.italic {
+  font-style: italic;
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 10.5rem;
+    height: 7.2rem;
+  }
+}

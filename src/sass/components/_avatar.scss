@@ -1,0 +1,22 @@
+.avatar {
+  overflow: hidden;
+  max-width: 12rem;
+  max-height: 12rem;
+  background-color: $col-grey-400;
+  border-radius: 3rem;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &--small {
+    max-width: 8.8rem;
+    max-height: 8.8rem;
+  }
+
+  svg {
+    transform: translateY(1rem);
+  }
+}

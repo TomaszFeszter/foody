@@ -11,7 +11,10 @@ $col-grey-400: #dfe2e5;
 $col-grey-300: #f7f7fb;
 $col-grey-200: #fcfcfc;
 
+$col-red-600: #e92a2a;
 $col-red-500: #fe554a;
+$col-red-400: #ff774c;
+$col-red-300: #f9881f;
 
 $col-green-500: #0b735f;
 $col-green-400: #3ec032;
@@ -44,6 +47,12 @@ $lin-gradient-orange: linear-gradient(
 // box-shadows
 $bs-20: 0px 2px 20px rgba(0, 0, 0, 0.05);
 $bs-30: 0px 8px 15px rgba(150, 110, 86, 0.2);
+$bs-40: 0px 10px 30px rgba(202, 66, 17, 0.1);
+
 $bs-btn: 0px 10px 30px rgba(202, 66, 17, 0.1);
 $bs-product: 0px 20px 40px rgba(2, 32, 44, 0.05);
 $bs-product-grid: 0px 20px 20px rgba(170, 170, 170, 0.05);
+
+// drop-shadows
+
+$ds-40: drop-shadow(0px 5px 25px rgba(42, 122, 227, 0.06));

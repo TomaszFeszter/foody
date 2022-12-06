@@ -1,17 +1,30 @@
 .product-grid-item {
-  max-width: 20rem;
+  max-width: 25rem;
   border-radius: 30px;
   background-color: $col-white;
-  box-shadow: $bs-product-grid;
   padding: 1.5rem 1.5rem 2.1rem 1.5rem;
+  box-shadow: $bs-product-grid;
+  &:hover {
+    cursor: pointer;
+  }
 
   .product-img {
     margin-bottom: 2rem;
+    min-width: 22rem;
   }
 
   .cta {
     @include flex(row, space-between);
     margin-top: 1.2rem;
+  }
+
+  .like {
+    &--checked {
+      svg {
+        fill: $col-red-600;
+        stroke: $col-red-600;
+      }
+    }
   }
 
   .sub-header {

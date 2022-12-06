@@ -1,50 +1,33 @@
-import React, { useEffect } from "react";
-import Button from "../../components/Button";
-import Form from "../../components/Form";
-import Input, { Field } from "../../components/Inputs";
-import UnauthorizedLayout from "../../layouts/UnauthorizedLayout";
-import { useNavigate } from "react-router-dom";
-import API from "../../utils/api";
-import useFetch from "../../hooks/useFetch";
+import React from "react";
+import LogIn from "../../features/Login";
+import SignUp from "../../features/SignUp";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { Cell, Grid, Page } from "../../layouts";
 
-const SignUp = () => {
-  const navigate = useNavigate();
-  const { run, isSuccess } = useFetch(API.SIGN_UP());
+const SignUpPage = () => {
+  const isDesktop = useMediaQuery("(min-width: 1200px)");
 
-  const onSubmit = (formData) => {
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const passwordConfirm = formData.get("password-confirm");
-
-    if (!email || !password || !passwordConfirm || password !== passwordConfirm)
-      return;
-
-    run({ method: "POST", body: JSON.stringify({ email, password }) });
-  };
-
-  useEffect(() => {
-    if (isSuccess) navigate("/");
-  }, [isSuccess, navigate]);
-
-  const signUpForm = (
-    <Form onSubmit={onSubmit}>
-      <Field label="Email">
-        <Input type="email" name="email" placeholder="Email" />
-      </Field>
-      <Field label="Password">
-        <Input type="password" name="password" placeholder="Password" />
-      </Field>
-      <Field label="Password Confirm">
-        <Input
-          type="password"
-          name="password-confirm"
-          placeholder="Password Confirm"
-        />
-      </Field>
-      <Button type="submit">Sign up</Button>
-    </Form>
+  // TODO przemyśl nazwy klas
+  return (
+    <Page>
+      <Grid>
+        {isDesktop ? (
+          <>
+            <Cell size={6} modifier="center-horizontally pt-20 pb-20">
+              <LogIn />
+            </Cell>
+            <Cell size={6} modifier="center-horizontally pt-20 pb-20">
+              <SignUp />
+            </Cell>
+          </>
+        ) : (
+          <Cell modifier={"center-vertically"}>
+            <SignUp />
+          </Cell>
+        )}
+      </Grid>
+    </Page>
   );
-  return <UnauthorizedLayout firstColumn={signUpForm} />;
 };
 
-export default SignUp;
+export default SignUpPage;

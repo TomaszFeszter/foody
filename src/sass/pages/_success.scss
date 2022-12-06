@@ -1,0 +1,26 @@
+.container {
+  .success {
+    @include flex(column);
+    padding-top: 5rem;
+
+    &__info {
+      @include flex(column);
+      margin-bottom: 5rem;
+      text-align: center;
+      svg {
+        margin-bottom: 2.5rem;
+      }
+      .h1 {
+        max-width: 25.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .h3 {
+        max-width: 29.6rem;
+      }
+    }
+    .btn {
+      justify-content: flex-end;
+    }
+  }
+}

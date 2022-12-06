@@ -1,4 +1,5 @@
 import React from "react";
+import AddToCart from "../AddToCart";
 import Link from "../Links";
 import ProductImg from "../ProductImg";
 import SubHeading from "../SubHeading";
@@ -8,9 +9,13 @@ function ProductListItem({
   caption = "",
   description = "",
   price = "",
-  orderAgain = true,
-  flag = "Complete",
+  orderAgain = false,
+  flag,
   addToCart = true,
+  qty = "0",
+  increment,
+  decrement,
+  handleClick,
 }) {
   return (
     <div className="product-list-item">
@@ -19,18 +24,14 @@ function ProductListItem({
         <SubHeading size="big">{caption}</SubHeading>
         <SubHeading>{description}</SubHeading>
         <SubHeading modifier="price" size="big">
-          {price}
+          {price} $
         </SubHeading>
       </div>
       <div className="cta">
         {addToCart && (
-          <div className="add-to-cart">
-            <button className="qty-btn">-</button>
-            <span className="qty-label">15</span>
-            <button className="qty-btn">+</button>
-          </div>
+          <AddToCart qty={qty} increment={increment} decrement={decrement} />
         )}
-        {orderAgain && <Link>Order again</Link>}
+        {orderAgain && <Link onClick={orderAgain}>Order again</Link>}
       </div>
       {flag && <span className="flag">{flag}</span>}
     </div>

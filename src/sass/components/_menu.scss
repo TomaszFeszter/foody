@@ -1,17 +1,25 @@
 .menu {
   @include flex(column, center, flex-start);
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
+  z-index: 2;
   background-color: $col-white;
   width: 19rem;
   height: 100vh;
-  transform: translateX(-20rem);
+  transform: translateX(-120%);
   transition: all 0.3s;
   box-shadow: $bs-30;
 
   &--active {
     transform: translateX(0);
+    @media screen and (min-width: 1200px) {
+      width: 100%;
+    }
+  }
+  > svg {
+    margin: 0 auto;
+    transform: translateX(-2rem);
   }
   button {
     margin-bottom: 2.4rem;
@@ -28,10 +36,11 @@
   }
 
   &__options {
+    margin-top: 5rem;
     margin-bottom: auto;
 
     &__item {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       svg {
         margin-right: 1rem;
       }
@@ -39,6 +48,19 @@
         @include flex(row, flex-start, center);
         text-decoration: none;
       }
+      .link {
+        padding: 1rem 1.5rem;
+        border-radius: 2rem;
+        &--active {
+          background: $lin-gradient-orange;
+          box-shadow: $bs-30;
+        }
+      }
     }
+  }
+
+  @media screen and (min-width: 1200px) {
+    position: static;
+    height: 100%;
   }
 }

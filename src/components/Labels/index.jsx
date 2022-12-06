@@ -1,5 +1,5 @@
 import React from "react";
-import { Clock, Fire, Star } from "../Icons";
+import { Fire, Star } from "../Icons";
 
 export const RatingLabel = ({ children }) => {
   return (
@@ -22,8 +22,9 @@ export const KcalLabel = ({ children }) => {
 export const TimeLabel = ({ children }) => {
   return (
     <strong className="body label">
-      <Clock className="mr-2" />
-      {children}
+      🕑
+      {/* <Clock className="mr-2" /> */}
+      {" " + children}
     </strong>
   );
 };

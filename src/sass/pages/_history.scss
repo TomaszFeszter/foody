@@ -1,0 +1,34 @@
+.orders {
+  @include flex(column, flex-start);
+  padding: 2rem 1rem 0;
+  height: calc(100vh - 20rem);
+  @media screen and (min-width: 1200px) {
+    position: relative;
+    height: calc(100% - 8.2rem);
+  }
+  .nav-btn {
+    position: absolute;
+    left: 8rem;
+    top: 4rem;
+    @media screen and (min-width: 1200px) {
+      left: 0;
+      top: 1rem;
+    }
+  }
+  .h1 {
+    margin-bottom: 3rem;
+  }
+  &__list {
+    padding: 2rem 2rem 0;
+    margin-bottom: 2.4rem;
+    overflow: auto;
+    &__item {
+      @include flex(column);
+      @include gap(1rem);
+
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+}

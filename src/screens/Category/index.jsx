@@ -1,12 +1,13 @@
 import React from "react";
-import AuthorizedLayout from "../../layouts/AuthorizedLayout";
+import Category from "../../features/Category";
+import AppLayout from "../../layouts/AppLayout";
 
-const Category = () => {
+const CategoryPage = () => {
   return (
-    <AuthorizedLayout>
-      <div>Elo mordo na stronie kategorii</div>
-    </AuthorizedLayout>
+    <AppLayout>
+      <Category />
+    </AppLayout>
   );
 };
 
-export default Category;
+export default CategoryPage;
