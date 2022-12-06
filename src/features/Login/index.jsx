@@ -8,8 +8,6 @@ import Heading from "../../components/Heading";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-console.log();
-
 const LogIn = () => {
   const isDesktop = useMediaQuery("(max-width: 1200px)");
   const { login } = useContext(AuthContext);
