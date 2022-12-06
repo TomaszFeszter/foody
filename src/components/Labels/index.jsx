@@ -24,7 +24,7 @@ export const TimeLabel = ({ children }) => {
     <strong className="body label">
       🕑
       {/* <Clock className="mr-2" /> */}
-      {children}
+      {" " + children}
     </strong>
   );
 };
