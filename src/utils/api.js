@@ -1,4 +1,8 @@
-const BASE_URL = "http://localhost:5050/";
+const isDevelopment = process.env.REACT_APP_ENV === "development";
+
+const BASE_URL = isDevelopment
+  ? process.env.REACT_APP_DEV_API_URL
+  : process.env.REACT_APP_PROD_API_URL;
 
 const API = {
   SIGN_UP() {
