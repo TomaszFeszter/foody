@@ -61,7 +61,7 @@ const SignUp = () => {
               <div className="auth__dev__group">
                 <Heading>Password:</Heading>
                 <Heading size="small" styles="italic">
-                  {process.env.REACT_APP_TEST_ACCOUNT_EMAIL}
+                  {process.env.REACT_APP_TEST_ACCOUNT_PASSWORD}
                 </Heading>
               </div>
             </div>
