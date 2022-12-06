@@ -9,7 +9,6 @@ import AppLayout from "../../layouts/AppLayout";
 
 export const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <AppLayout>

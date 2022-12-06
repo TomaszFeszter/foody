@@ -8,6 +8,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Loader from "../../components/Loader";
 import { FavouritesContext } from "../../context/Favourites";
+const isDevelopment = process.env.REACT_APP_ENV === "development";
+
+const BASE_URL = isDevelopment
+  ? process.env.REACT_APP_DEV_API_URL
+  : process.env.REACT_APP_HOST_URL;
 
 const Category = () => {
   const { setFavorite, favouriteProducts } = useContext(FavouritesContext);
@@ -51,7 +56,7 @@ const Category = () => {
                 <FilterButton
                   onClick={() => setActiveCategory(id)}
                   name={name}
-                  image={`http://localhost:5050/${image}`}
+                  image={`${BASE_URL}${image}`}
                   active={id === activeCategory}
                 />
               </SplideSlide>
