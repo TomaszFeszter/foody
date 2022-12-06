@@ -54,6 +54,15 @@
         &--active {
           background: $lin-gradient-orange;
           box-shadow: $bs-30;
+          color: $col-white;
+          path {
+            stroke: $col-white;
+          }
+        }
+        &--fill {
+          path {
+            fill: $col-white;
+          }
         }
       }
     }
