@@ -9,7 +9,6 @@ import AppLayout from "../../layouts/AppLayout";
 
 export const Wishlist = () => {
   const { favouriteProducts, setFavorite } = useContext(FavouritesContext);
-  console.log(favouriteProducts);
 
   return (
     <AppLayout>
