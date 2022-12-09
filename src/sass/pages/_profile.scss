@@ -6,7 +6,11 @@
   .nav-btn {
     position: absolute;
     left: 8rem;
-    top: 4rem;
+    top: 1rem;
+
+    @media screen and (min-width: 350px) {
+      top: 2rem;
+    }
   }
   .h1 {
     margin-bottom: 2rem;

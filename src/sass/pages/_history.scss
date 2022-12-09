@@ -9,7 +9,12 @@
   .nav-btn {
     position: absolute;
     left: 8rem;
-    top: 4rem;
+    top: 1rem;
+
+    @media screen and (min-width: 350px) {
+      top: 2rem;
+    }
+
     @media screen and (min-width: 1200px) {
       left: 0;
       top: 1rem;

@@ -11,6 +11,11 @@ import { useNavigate } from "react-router-dom";
 import AppLayout from "../../layouts/AppLayout";
 import BackButton from "../../components/BackButton";
 
+const isDevelopment = process.env.REACT_APP_ENV === "development";
+const BASE_URL = isDevelopment
+  ? process.env.REACT_APP_DEV_API_URL
+  : process.env.REACT_APP_PROD_API_URL;
+
 const Checkout = () => {
   const { token, user } = useContext(AuthContext);
   const { cart, putPaymentMethod, putAddress, createCart } =
@@ -58,9 +63,6 @@ const Checkout = () => {
     activePaymentMethod &&
     data.find((payMethod) => payMethod.id === activePaymentMethod).price;
 
-  console.log(
-    data && data.find((payMethod) => payMethod.id === activePaymentMethod)
-  );
   return (
     <AppLayout>
       <Form styles="checkout" onSubmit={completeOrder}>
@@ -103,7 +105,7 @@ const Checkout = () => {
                   }`}
                 >
                   <img
-                    src={`http://localhost:5050${payMethod.image}`}
+                    src={`${BASE_URL}${payMethod.image}`}
                     alt={payMethod.name}
                   />
                 </div>
