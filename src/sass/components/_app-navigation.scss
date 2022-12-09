@@ -1,5 +1,12 @@
 .app-navigation {
   background-color: $col-white;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   position: relative;
+
+  @media screen and (min-width: 350px) {
+    padding: 2rem;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 4rem 2rem;
+  }
 }
