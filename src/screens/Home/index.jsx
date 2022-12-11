@@ -11,7 +11,7 @@ const Home = () => {
     <Page>
       <Grid>
         <Cell modifier="pt-20 pb-20">
-          <div className="flex-column">
+          <div className="flex-column pl-5 pr-5">
             <Logo className="logo mb-16" />
             <Heading size={"big"} styles={"mb-16"}>
               Choose from a wide range of delicious meals
