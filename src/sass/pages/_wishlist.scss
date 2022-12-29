@@ -1,8 +1,10 @@
 .wishlist {
   padding: 0.8rem 1rem 1rem;
   height: calc(100vh - 20rem);
-  @include flex(column, flex-start, flex-start);
-
+  @include flex(column, flex-start);
+  @media screen and (min-width: 426px) {
+    align-items: flex-start;
+  }
   .nav-btn {
     position: absolute;
     left: 8rem;
@@ -22,7 +24,7 @@
     flex-wrap: wrap;
     overflow: auto;
 
-    @media screen and (min-width: 555px) {
+    @media screen and (min-width: 540px) {
       justify-content: flex-start;
       .product-grid-item:last-child:nth-child(2n + 1) {
         margin-right: auto;
